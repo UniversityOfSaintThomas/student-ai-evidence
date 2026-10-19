@@ -1,0 +1,1858 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Students and AI at St. Thomas</title>
+<meta name="description" content="Two years of University of St. Thomas student AI survey data and a spring 2026 study of undergraduates, with tools that help faculty apply the evidence to course design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FBFAFD;
+  --paper-2:#F3F0F8;
+  --ink:#1E1B2E;
+  --ink-2:#4A4760;
+  --purple:#4B2882;
+  --purple-2:#7B62B0;
+  --purple-soft:#D9D0EA;
+  --gray-a:#6B6F7D;
+  --rule:#DCD7E6;
+  --grid:#E9E5F0;
+  --gold:#8A5F00;
+  --gold-fill:#E3B23C;
+  --lilly-bg:#EEF3F3;
+  --lilly-ink:#0E5559;
+  --focus:#C77700;
+  --good:#1E6B3A;
+  --radius-s:4px;
+  --radius-m:10px;
+  --measure:68ch;
+  --font:"Atkinson Hyperlegible Next","Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15131D; --paper-2:#1E1B29; --ink:#ECE9F4; --ink-2:#B9B4CB;
+    --purple:#B9A3EA; --purple-2:#8E77C6; --purple-soft:#3A3254; --gray-a:#A2A6B4;
+    --rule:#36314A; --grid:#2A2639; --gold:#F0C35A; --gold-fill:#E3B23C;
+    --lilly-bg:#152427; --lilly-ink:#8FD3D6; --focus:#FFB547; --good:#7FD39A;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15131D; --paper-2:#1E1B29; --ink:#ECE9F4; --ink-2:#B9B4CB;
+  --purple:#B9A3EA; --purple-2:#8E77C6; --purple-soft:#3A3254; --gray-a:#A2A6B4;
+  --rule:#36314A; --grid:#2A2639; --gold:#F0C35A; --gold-fill:#E3B23C;
+  --lilly-bg:#152427; --lilly-ink:#8FD3D6; --focus:#FFB547; --good:#7FD39A;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:5rem}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{transition:none!important; animation:none!important} }
+body{margin:0; background:var(--paper); color:var(--ink); font-family:var(--font); font-size:1.0625rem; line-height:1.6; -webkit-font-smoothing:antialiased}
+img,svg{max-width:100%}
+a{color:var(--purple); text-underline-offset:.18em; text-decoration-thickness:1px}
+a:hover{text-decoration-thickness:2px}
+:focus-visible{outline:3px solid var(--focus); outline-offset:2px; border-radius:2px}
+.sr-only{position:absolute!important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0}
+.skip{position:absolute; left:1rem; top:-4rem; background:var(--ink); color:var(--paper); padding:.6rem 1rem; z-index:100; border-radius:var(--radius-s)}
+.skip:focus{top:1rem}
+.wrap{max-width:72rem; margin:0 auto; padding:0 1.25rem}
+@media (min-width:900px){ .wrap{padding:0 2rem} }
+
+/* Masthead */
+.masthead{position:sticky; top:0; z-index:50; background:color-mix(in srgb, var(--paper) 94%, transparent); backdrop-filter:saturate(1.2) blur(6px); border-bottom:1px solid var(--rule)}
+.mast-inner{display:flex; align-items:center; gap:1rem; min-height:3.75rem}
+.brand{display:flex; align-items:center; gap:.6rem; text-decoration:none; color:var(--ink); font-weight:800; letter-spacing:-.01em; white-space:nowrap}
+.brand-mark{width:1.1rem; height:1.1rem; border-radius:50%; background:conic-gradient(var(--purple) 0 50.3%, var(--purple-soft) 50.3% 100%); flex:none}
+.brand small{font-weight:400; color:var(--ink-2); font-size:.9rem}
+.site-nav{flex:1; overflow-x:auto; scrollbar-width:thin}
+.site-nav ul{display:flex; gap:.15rem; list-style:none; margin:0; padding:.25rem 0}
+.site-nav a{display:block; padding:.45rem .65rem; border-radius:var(--radius-s); color:var(--ink-2); text-decoration:none; font-size:.92rem; white-space:nowrap}
+.site-nav a:hover,.site-nav a[aria-current="true"]{color:var(--purple); background:var(--paper-2)}
+.toggle{flex:none; display:inline-flex; align-items:center; gap:.5rem; font:inherit; font-size:.9rem; background:none; border:1px solid var(--rule); color:var(--ink); padding:.4rem .7rem; border-radius:999px; cursor:pointer; min-height:2.25rem}
+.toggle .sw{width:2rem; height:1.1rem; border-radius:999px; background:var(--rule); position:relative; flex:none}
+.toggle .sw::after{content:""; position:absolute; top:2px; left:2px; width:calc(1.1rem - 4px); height:calc(1.1rem - 4px); border-radius:50%; background:var(--paper); transition:transform .15s}
+.toggle[aria-pressed="true"] .sw{background:var(--purple)}
+.toggle[aria-pressed="true"] .sw::after{transform:translateX(.9rem)}
+@media (max-width:760px){ .mast-inner{flex-wrap:wrap; padding-top:.4rem} .site-nav{order:3; flex-basis:100%} .brand small{display:none} .toggle .tlabel{display:none} }
+
+/* Hero */
+.hero{padding:3.5rem 0 3rem; border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid; gap:2.5rem; align-items:start}
+@media (min-width:960px){ .hero-grid{grid-template-columns:1.15fr .85fr; gap:4rem} }
+h1{font-size:clamp(2.1rem, 4.6vw, 3.4rem); line-height:1.06; letter-spacing:-.025em; font-weight:800; margin:0 0 1.25rem; max-width:18ch}
+.lede{font-size:1.2rem; color:var(--ink-2); max-width:44ch; margin:0 0 1.25rem}
+.meta{font-size:.92rem; color:var(--ink-2); margin:0}
+.hero-card{background:var(--paper-2); border-radius:var(--radius-m); padding:1.5rem 1.5rem 1.25rem; border:1px solid var(--rule)}
+.hero-card h2{font-size:1.05rem; margin:0 0 .25rem; font-weight:700}
+.hero-card .why{font-size:.92rem; color:var(--ink-2); margin:.9rem 0 0}
+
+/* Sections */
+section.block{padding:4rem 0; border-bottom:1px solid var(--rule)}
+.section-head{max-width:var(--measure); margin-bottom:2rem}
+h2.sh{font-size:clamp(1.65rem, 3vw, 2.25rem); line-height:1.15; letter-spacing:-.02em; margin:0 0 .9rem; font-weight:800}
+h3{font-size:1.2rem; line-height:1.3; margin:2.5rem 0 .6rem; font-weight:700}
+h4{font-size:1rem; margin:1.25rem 0 .4rem}
+p{margin:0 0 1rem}
+.prose{max-width:var(--measure)}
+.src{font-size:.88rem; color:var(--ink-2)}
+.pill-src{display:inline-block; font-size:.82rem; color:var(--ink-2); border:1px solid var(--rule); border-radius:999px; padding:.1rem .6rem; margin-bottom:.75rem}
+
+/* Sources band */
+.sources-band{background:var(--paper-2); padding:2.25rem 0; border-bottom:1px solid var(--rule)}
+.src-list{display:grid; gap:1.5rem; margin:0}
+@media (min-width:860px){ .src-list{grid-template-columns:repeat(3,1fr); gap:2.5rem} }
+.src-list dt{font-weight:700; margin-bottom:.2rem}
+.src-list dd{margin:0; font-size:.95rem; color:var(--ink-2)}
+.src-list .tag{display:inline-block; width:.7rem; height:.7rem; border-radius:50%; margin-right:.45rem; vertical-align:baseline}
+
+/* Figures */
+figure.fig{margin:1.5rem 0 2rem; max-width:62rem}
+figure.fig figcaption{margin-bottom:1rem}
+.fig-title{font-weight:700; font-size:1.05rem; margin:0 0 .15rem}
+.fig-sub{font-size:.92rem; color:var(--ink-2); margin:0}
+.legend{display:flex; flex-wrap:wrap; gap:.4rem 1.25rem; font-size:.9rem; color:var(--ink-2); margin:.6rem 0 .25rem}
+.legend span{display:inline-flex; align-items:center; gap:.45rem}
+.k{width:14px; height:14px; border-radius:50%; display:inline-block; flex:none}
+.k-a{border:2.5px solid var(--gray-a); background:var(--paper)}
+.k-b{background:var(--purple); border:2.5px solid var(--purple)}
+.k-guess{background:var(--gold-fill); border:2px solid var(--gold); border-radius:2px; transform:rotate(45deg); width:11px; height:11px}
+.fig-note{font-size:.85rem; color:var(--ink-2); margin-top:.75rem; max-width:var(--measure)}
+
+/* Dumbbell */
+.db{--lw:15.5rem; --vw:8.25rem}
+.db-row,.db-axis{display:grid; grid-template-columns:var(--lw) 1fr var(--vw); gap:.25rem 1rem; align-items:center}
+.db-row{padding:.5rem 0; border-top:1px solid var(--grid)}
+.db-label{font-size:.97rem; line-height:1.3}
+.db-track{position:relative; height:26px}
+.db-scale{position:absolute; left:8px; right:8px; top:0; bottom:0}
+.tick{position:absolute; top:0; bottom:0; width:1px; background:var(--grid)}
+.db-line{position:absolute; top:50%; height:4px; transform:translateY(-50%); background:var(--purple-soft); border-radius:2px}
+.dot{position:absolute; top:50%; width:15px; height:15px; border-radius:50%; transform:translate(-50%,-50%)}
+.dot-a{background:var(--paper); border:2.5px solid var(--gray-a)}
+.dot-b{background:var(--purple); border:2.5px solid var(--purple)}
+.db-vals{font-variant-numeric:tabular-nums; font-size:.93rem; display:flex; gap:.6rem; justify-content:flex-end; align-items:baseline; white-space:nowrap}
+.va{color:var(--ink-2)}
+.vb{font-weight:700; color:var(--ink)}
+.chg{font-size:.82rem; color:var(--ink-2); min-width:3.1rem; text-align:right}
+.chg.big{font-weight:700; color:var(--purple)}
+.db-axis{padding-bottom:.2rem}
+.db-axis .db-track{height:1.3rem}
+.tick-label{position:absolute; transform:translateX(-50%); font-size:.78rem; color:var(--ink-2); top:0; white-space:nowrap}
+.db-axis .db-vals{font-size:.78rem; color:var(--ink-2)}
+.db-group{padding:1.1rem 0 .2rem; font-weight:700; font-size:.95rem; color:var(--purple); border-top:1px solid var(--rule)}
+.db-group span{font-weight:400; color:var(--ink-2)}
+@media (max-width:680px){
+  .db-row{grid-template-columns:1fr auto}
+  .db-row .db-label{grid-column:1/-1}
+  .db-axis{grid-template-columns:1fr auto}
+  .db-axis .db-label{display:none}
+  .db{--vw:auto}
+}
+
+/* Bars */
+.bars .bar-row{display:grid; grid-template-columns:minmax(9rem,15rem) 1fr 3.4rem; gap:.25rem 1rem; align-items:center; padding:.42rem 0; border-top:1px solid var(--grid)}
+.bar-label{font-size:.95rem; line-height:1.3}
+.bar-track{position:relative; display:grid; gap:3px}
+.bar{height:14px; border-radius:0 3px 3px 0; background:var(--purple); min-width:2px}
+.bar.s2{background:var(--purple-2)}
+.bar.s3{background:var(--gray-a)}
+.bar.thin{height:10px}
+.bar-val{font-variant-numeric:tabular-nums; font-size:.9rem; display:grid; gap:0; text-align:right; line-height:1.25}
+.bar-val .s2v{color:var(--ink-2)}
+@media (max-width:620px){ .bars .bar-row{grid-template-columns:1fr 3.2rem} .bar-label{grid-column:1/-1} }
+.k-sq{width:14px; height:14px; border-radius:2px; display:inline-block}
+.k-s1{background:var(--purple)} .k-s2{background:var(--purple-2)} .k-s3{background:var(--gray-a)}
+
+/* Matrix table */
+table.matrix{border-collapse:collapse; width:100%; max-width:46rem; font-size:.95rem}
+table.matrix th, table.matrix td{padding:.55rem .6rem; border-top:1px solid var(--grid); text-align:left; vertical-align:middle}
+table.matrix thead th{font-size:.88rem; color:var(--ink-2); font-weight:600; border-top:none}
+table.matrix td .cell{display:flex; align-items:center; gap:.5rem}
+table.matrix .mb{display:inline-block; height:12px; background:var(--purple); border-radius:0 2px 2px 0}
+table.matrix .mb.c2{background:var(--purple-2)} table.matrix .mb.c3{background:var(--gray-a)}
+table.matrix .n{color:var(--ink-2); font-weight:400; font-size:.85rem}
+.table-scroll{overflow-x:auto}
+
+/* Data table toggle */
+details.data{margin-top:1rem; max-width:46rem}
+details.data summary{cursor:pointer; color:var(--purple); font-size:.92rem; padding:.3rem 0; width:max-content}
+details.data table{border-collapse:collapse; width:100%; font-size:.9rem; margin-top:.5rem; font-variant-numeric:tabular-nums}
+details.data th, details.data td{border-bottom:1px solid var(--grid); padding:.35rem .5rem; text-align:right}
+details.data th:first-child, details.data td:first-child{text-align:left}
+details.data caption{text-align:left; font-size:.85rem; color:var(--ink-2); padding-bottom:.3rem}
+
+/* Callouts */
+.implication{max-width:var(--measure); border-left:4px solid var(--purple); padding:.25rem 0 .25rem 1.25rem; margin:2rem 0}
+.implication h3{margin:0 0 .4rem; font-size:1.05rem}
+.implication p:last-child{margin-bottom:0}
+.research-note{max-width:var(--measure); font-size:.95rem; color:var(--ink-2); background:var(--paper-2); padding:1rem 1.25rem; border-radius:var(--radius-m)}
+.research-note strong{color:var(--ink)}
+.two-col{display:grid; gap:2.5rem}
+@media (min-width:1000px){ .two-col{grid-template-columns:1fr 1fr; gap:3.5rem} }
+
+/* Predictions */
+.predict{max-width:40rem}
+.pred-label{font-weight:700; font-size:1.08rem; line-height:1.4; margin:0 0 .9rem}
+.pred-input{display:flex; align-items:center; gap:1rem}
+.pred-input input[type=range]{flex:1; accent-color:var(--gold); height:2rem; min-width:0}
+.pred-input output{font-size:1.75rem; font-weight:800; font-variant-numeric:tabular-nums; min-width:4.2ch; text-align:right; color:var(--gold)}
+.pred-hint{font-size:.85rem; color:var(--ink-2); margin:.4rem 0 .9rem}
+.pred-actions{display:flex; flex-wrap:wrap; gap:.6rem}
+.btn{font:inherit; font-size:.95rem; font-weight:600; border-radius:var(--radius-s); padding:.6rem 1rem; cursor:pointer; min-height:2.6rem; border:1.5px solid var(--purple)}
+.btn-primary{background:var(--purple); color:var(--paper)}
+.btn-primary:hover{filter:brightness(1.12)}
+.btn-quiet{background:transparent; color:var(--purple)}
+.btn-quiet:hover{background:var(--paper-2)}
+.btn-small{font-size:.88rem; padding:.4rem .75rem; min-height:2.2rem}
+.pred-result p{margin:.4rem 0}
+.pred-big{font-size:1.15rem}
+.cmp{display:grid; grid-template-columns:6.5rem 1fr 3.8rem; gap:.35rem .75rem; align-items:center; margin:.8rem 0; font-size:.9rem; max-width:32rem}
+.cmp .b{height:12px; border-radius:0 3px 3px 0}
+.cmp .b.g{background:var(--gold-fill); outline:1.5px solid var(--gold); outline-offset:-1.5px}
+.cmp .b.a{background:var(--purple)}
+.cmp .v{text-align:right; font-variant-numeric:tabular-nums; font-weight:700}
+.inline-pred{background:var(--paper-2); border:1px solid var(--rule); border-radius:var(--radius-m); padding:1.25rem 1.5rem; margin:0 0 2rem; max-width:44rem}
+.lock-note{max-width:44rem; border:1px dashed var(--rule); border-radius:var(--radius-m); padding:1rem 1.25rem; color:var(--ink-2); font-size:.95rem}
+.lock-note p{margin:0 0 .6rem}
+
+/* Lilly lens */
+.lens{background:var(--lilly-bg)}
+.lens h2.sh, .lens .db-group{color:var(--ink)}
+.lens-tag{display:inline-flex; align-items:center; gap:.5rem; font-size:.9rem; font-weight:700; color:var(--lilly-ink); margin-bottom:.75rem}
+.lens-tag::before{content:""; width:.7rem; height:.7rem; background:var(--lilly-ink); border-radius:50%}
+.method-box{max-width:var(--measure); border:1px solid color-mix(in srgb, var(--lilly-ink) 35%, transparent); border-radius:var(--radius-m); padding:1rem 1.25rem; font-size:.95rem; background:var(--paper)}
+.method-box h3{margin:0 0 .4rem; font-size:1rem}
+.compare-table{border-collapse:collapse; font-size:.9rem; margin-top:.6rem; width:100%}
+.compare-table th,.compare-table td{text-align:left; padding:.4rem .5rem; border-top:1px solid var(--rule); vertical-align:top}
+.compare-table thead th{border-top:none; color:var(--ink-2); font-weight:600}
+.quotes{display:grid; gap:1.25rem; margin:1.5rem 0 0; padding:0; list-style:none}
+@media (min-width:820px){ .quotes{grid-template-columns:1fr 1fr} }
+.quotes blockquote{margin:0; font-size:1.05rem; line-height:1.5}
+.quotes figcaption, .quotes .who{font-size:.85rem; color:var(--ink-2); margin-top:.35rem}
+.quotes li{border-top:2px solid var(--lilly-ink); padding-top:.75rem}
+.spectrum{display:grid; gap:0; margin:1rem 0; max-width:60rem}
+@media (min-width:760px){ .spectrum{grid-template-columns:repeat(4,1fr)} }
+.spectrum > div{padding:.9rem 1rem; border-top:4px solid var(--lilly-ink); background:var(--paper)}
+.spectrum > div:nth-child(1){border-top-color:color-mix(in srgb,var(--lilly-ink) 25%, var(--paper))}
+.spectrum > div:nth-child(2){border-top-color:color-mix(in srgb,var(--lilly-ink) 50%, var(--paper))}
+.spectrum > div:nth-child(3){border-top-color:color-mix(in srgb,var(--lilly-ink) 75%, var(--paper))}
+.spectrum h4{margin:0 0 .3rem}
+.spectrum p{font-size:.9rem; margin:0; color:var(--ink-2)}
+
+/* Summary */
+.sum-table{border-collapse:collapse; width:100%; max-width:48rem; font-size:.95rem; font-variant-numeric:tabular-nums}
+.sum-table th,.sum-table td{border-top:1px solid var(--rule); padding:.5rem; text-align:right}
+.sum-table th:first-child,.sum-table td:first-child{text-align:left}
+.sum-table thead th{border-top:none; color:var(--ink-2); font-weight:600}
+
+/* Tools */
+.tool{background:var(--paper); border:1px solid var(--rule); border-radius:var(--radius-m); padding:1.5rem; margin-top:1.5rem}
+@media (min-width:900px){ .tool{padding:2rem 2.25rem} }
+.tool-grid{display:grid; gap:2rem}
+@media (min-width:1000px){ .tool-grid{grid-template-columns:minmax(0,1fr) minmax(0,1.1fr); gap:2.5rem} }
+fieldset{border:none; padding:0; margin:0 0 1.4rem}
+legend{font-weight:700; padding:0; margin-bottom:.5rem; font-size:1rem}
+.opt{display:flex; gap:.6rem; align-items:flex-start; padding:.45rem .6rem; border-radius:var(--radius-s); cursor:pointer}
+.opt:hover{background:var(--paper-2)}
+.opt input{margin-top:.3rem; accent-color:var(--purple); width:1.05rem; height:1.05rem; flex:none}
+.opt .help{display:block; font-size:.86rem; color:var(--ink-2)}
+label.field{display:block; font-weight:700; margin-bottom:.35rem}
+input[type=text], textarea{width:100%; font:inherit; font-size:.97rem; color:var(--ink); background:var(--paper); border:1.5px solid var(--rule); border-radius:var(--radius-s); padding:.55rem .7rem}
+input[type=text]:focus, textarea:focus{border-color:var(--purple)}
+textarea{min-height:5rem; resize:vertical; line-height:1.5}
+.field-help{font-size:.86rem; color:var(--ink-2); margin:.3rem 0 1.2rem}
+.out{border-left:4px solid var(--gold-fill); padding-left:1.25rem}
+.out h3{margin-top:0}
+.level-scale{display:flex; gap:4px; margin:.5rem 0 1rem; max-width:26rem}
+.level-scale span{flex:1; height:10px; background:var(--purple-soft); border-radius:2px}
+.level-scale span.on{background:var(--purple)}
+.level-scale span.alt{background:repeating-linear-gradient(45deg,var(--purple-2) 0 4px, var(--purple-soft) 4px 8px)}
+.out ul{padding-left:1.2rem; margin:.3rem 0 1rem}
+.out li{margin-bottom:.35rem}
+.notice{background:var(--paper-2); border-radius:var(--radius-s); padding:.75rem 1rem; font-size:.93rem; margin:.75rem 0}
+.copy-row{display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-top:.6rem}
+.copied{font-size:.88rem; color:var(--good)}
+.statement{background:var(--paper-2); border-radius:var(--radius-s); padding:1.1rem 1.25rem; white-space:pre-wrap; font-size:.97rem; line-height:1.6; max-height:34rem; overflow:auto}
+.levels-ref{display:grid; gap:.75rem; margin:1rem 0 0; padding:0; list-style:none; counter-reset:lv}
+@media (min-width:900px){ .levels-ref{grid-template-columns:repeat(5,1fr)} }
+.levels-ref li{counter-increment:lv; border-top:4px solid var(--purple-soft); padding-top:.6rem; font-size:.9rem}
+.levels-ref li:nth-child(2){border-top-color:color-mix(in srgb,var(--purple) 35%,var(--purple-soft))}
+.levels-ref li:nth-child(3){border-top-color:color-mix(in srgb,var(--purple) 55%,var(--purple-soft))}
+.levels-ref li:nth-child(4){border-top-color:color-mix(in srgb,var(--purple) 75%,var(--purple-soft))}
+.levels-ref li:nth-child(5){border-top-color:var(--purple)}
+.levels-ref strong{display:block; font-size:.95rem}
+.levels-ref strong::before{content:"Level " counter(lv) ": "; font-weight:400; color:var(--ink-2)}
+.levels-ref span{color:var(--ink-2)}
+
+/* Tabs */
+[role=tablist]{display:flex; flex-wrap:wrap; gap:.4rem; margin:1rem 0 1.25rem}
+[role=tab]{font:inherit; font-size:.93rem; background:transparent; color:var(--ink-2); border:1.5px solid var(--rule); border-radius:999px; padding:.45rem .95rem; cursor:pointer; min-height:2.4rem}
+[role=tab][aria-selected=true]{background:var(--purple); border-color:var(--purple); color:var(--paper)}
+.guide ol.steps{padding-left:1.3rem; max-width:var(--measure)}
+.guide ol.steps li{margin-bottom:.9rem}
+.guide .time{font-weight:700; color:var(--purple)}
+.guide-meta{display:flex; flex-wrap:wrap; gap:.5rem 1.75rem; font-size:.93rem; color:var(--ink-2); margin:.25rem 0 1rem}
+.guide-meta b{color:var(--ink)}
+
+/* Principles */
+.principles{display:grid; gap:1.5rem 2.5rem; margin:1.5rem 0 0; padding:0; list-style:none}
+@media (min-width:860px){ .principles{grid-template-columns:1fr 1fr} }
+.principles li{padding-top:.8rem; border-top:1px solid var(--rule)}
+.principles h3{margin:0 0 .3rem; font-size:1.02rem}
+.principles p{font-size:.95rem; color:var(--ink-2); margin:0}
+
+/* References */
+.refs h3{margin-top:2rem}
+.refs ol, .refs ul{padding-left:1.2rem; max-width:var(--measure)}
+.refs li{margin-bottom:.7rem; font-size:.95rem; padding-left:.2rem}
+.refs .used{display:block; font-size:.86rem; color:var(--ink-2)}
+.method-list li{font-size:.93rem; margin-bottom:.6rem}
+
+/* Engagement */
+.read-progress{position:absolute; left:0; right:0; bottom:-1px; height:3px; background:transparent}
+.read-progress span{display:block; height:100%; width:0; background:var(--purple)}
+.masthead{position:sticky}
+.pcount{font-size:.8rem; color:var(--ink-2); font-variant-numeric:tabular-nums}
+.pcount:empty{display:none}
+details.mynote{max-width:var(--measure); margin:2rem 0 0; border:1px solid var(--rule); border-radius:var(--radius-m); background:var(--paper)}
+details.mynote summary{cursor:pointer; padding:.75rem 1rem; font-weight:600; color:var(--purple)}
+details.mynote[open] summary{border-bottom:1px solid var(--rule)}
+details.mynote textarea{border:none; border-radius:0 0 var(--radius-m) var(--radius-m); min-height:6rem}
+details.mynote textarea:focus{outline:3px solid var(--focus); outline-offset:-3px}
+.note-status{font-size:.82rem; color:var(--ink-2); margin:0; padding:0 1rem .5rem}
+.note-status:empty{display:none}
+.has-note summary::after{content:" (saved)"; font-weight:400; color:var(--ink-2)}
+.class-pic{margin:2.5rem 0; max-width:62rem}
+.class-pic h3{margin-top:0}
+.cp-controls{display:flex; flex-wrap:wrap; gap:1rem 2.5rem; margin:1rem 0 1.25rem}
+.cp-ctl label{display:block; font-weight:700; font-size:.95rem; margin-bottom:.3rem}
+.cp-size-row{display:flex; align-items:center; gap:.75rem; min-width:16rem}
+.cp-size-row input{flex:1; accent-color:var(--purple)}
+.cp-size-row output{font-weight:800; font-size:1.3rem; min-width:3ch; font-variant-numeric:tabular-nums}
+.cp-ctl select{font:inherit; font-size:.95rem; color:var(--ink); background:var(--paper); border:1.5px solid var(--rule); border-radius:var(--radius-s); padding:.45rem .7rem; min-height:2.5rem; max-width:100%}
+.cp-wrap{display:grid; gap:1.25rem 2.5rem; align-items:start}
+@media (min-width:820px){ .cp-wrap{grid-template-columns:auto minmax(14rem,1fr)} }
+.cp-grid{display:grid; grid-template-columns:repeat(10, 22px); gap:6px}
+@media (min-width:520px){ .cp-grid{grid-template-columns:repeat(15, 22px)} }
+.cp-dot{width:22px; height:22px; border-radius:50%; box-sizing:border-box}
+.c-daily{background:var(--purple)}
+.c-weekly{background:var(--purple-2)}
+.c-monthly{background:var(--purple-soft); border:2px solid var(--purple-2)}
+.c-rarely{background:color-mix(in srgb,var(--gray-a) 35%, var(--paper)); border:2px solid var(--gray-a)}
+.c-never{background:transparent; border:2px dashed var(--gray-a)}
+.cp-legend{list-style:none; margin:0; padding:0; display:grid; gap:.5rem}
+.cp-legend li{display:grid; grid-template-columns:22px 1fr auto; gap:.6rem; align-items:center; font-size:.95rem; padding-bottom:.45rem; border-bottom:1px solid var(--grid)}
+.cp-legend b{font-variant-numeric:tabular-nums}
+.csv-btn{margin-top:.5rem}
+
+/* Group filter */
+.group-filter{margin-top:1.75rem; padding-top:1.25rem; border-top:1px solid var(--rule); display:flex; flex-wrap:wrap; align-items:center; gap:.6rem 1rem}
+.group-filter label{font-weight:700}
+.group-filter select, .fig-group select{font:inherit; font-size:.95rem; color:var(--ink); background:var(--paper); border:1.5px solid var(--rule); border-radius:var(--radius-s); padding:.45rem 2rem .45rem .7rem; min-height:2.5rem; max-width:100%}
+.group-filter p{margin:0; font-size:.9rem; color:var(--ink-2); flex-basis:100%}
+.fig-group{display:flex; flex-wrap:wrap; align-items:center; gap:.4rem .75rem; margin:.6rem 0 0; font-size:.92rem}
+.fig-group label{color:var(--ink-2)}
+.group-flag{font-size:.88rem; background:var(--paper-2); border-radius:var(--radius-s); padding:.5rem .8rem; margin:.6rem 0 0; max-width:var(--measure)}
+.dot-missing{display:none}
+.vb-missing{color:var(--ink-2)}
+
+footer.site-foot{padding:2.5rem 0 3rem; font-size:.9rem; color:var(--ink-2)}
+footer.site-foot p{max-width:var(--measure)}
+
+.context-strip{display:grid; gap:1.25rem; margin:1rem 0 0; max-width:62rem}
+@media (min-width:820px){ .context-strip{grid-template-columns:repeat(3,1fr)} }
+.context-strip div{border-top:1px solid var(--rule); padding-top:.75rem}
+.context-strip .num{font-size:1.7rem; font-weight:800; line-height:1.1; display:block}
+.context-strip p{font-size:.9rem; color:var(--ink-2); margin:.25rem 0 0}
+
+.theme-btn{font:inherit; font-size:.85rem; background:none; border:none; color:var(--purple); text-decoration:underline; cursor:pointer; padding:0}
+
+@media print{
+  .masthead, .skip, .toggle, .btn, details.data summary{display:none!important}
+  body.printing-guide *{visibility:hidden}
+  body.printing-guide .print-target, body.printing-guide .print-target *{visibility:visible}
+  body.printing-guide .print-target{position:absolute; left:0; top:0; width:100%}
+  body{background:#fff; color:#000}
+  section.block{break-inside:auto}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to main content</a>
+
+<header class="masthead">
+  <div class="read-progress" aria-hidden="true"><span id="read-bar"></span></div>
+  <div class="wrap mast-inner">
+    <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true"></span><span>Students and AI <small>at St. Thomas</small></span></a>
+    <nav class="site-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#use">Use</a></li>
+        <li><a href="#practices">Practices</a></li>
+        <li><a href="#integrity">Integrity</a></li>
+        <li><a href="#concerns">Concerns</a></li>
+        <li><a href="#spring-study">Spring 2026 study</a></li>
+        <li><a href="#apply">Apply it</a></li>
+        <li><a href="#guides">Discussion guides</a></li>
+        <li><a href="#sources">Sources</a></li>
+      </ul>
+    </nav>
+    <button type="button" class="toggle" id="predToggle" aria-pressed="true"><span class="sw" aria-hidden="true"></span><span class="tlabel">Predict first</span><span class="pcount" id="pcount" aria-hidden="true"></span><span class="sr-only"> mode: hides each chart until you make a prediction or choose to skip</span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="h-title">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 id="h-title">What St. Thomas students do with AI, and what it means for your course</h1>
+      <p class="lede">Two years of student survey data and a spring 2026 study of undergraduates. Test your assumptions, look at the evidence, then use the planning tools on one assignment.</p>
+      <p class="meta">Prepared by STELAR for University of St. Thomas faculty. October 2026.</p>
+    </div>
+    <div class="hero-card">
+      <h2>Start with a guess</h2>
+      <div class="predict" data-pred="p-weekly"></div>
+      <p class="why">Each section opens with a prediction. Committing to a guess before seeing data makes surprising results easier to notice and remember (Brod, 2021). You can turn this off with the <b>Predict first</b> switch at the top.</p>
+    </div>
+  </div>
+</section>
+
+<section class="sources-band" aria-labelledby="h-data">
+  <div class="wrap">
+    <h2 id="h-data" class="sr-only">The three sources of evidence</h2>
+    <dl class="src-list">
+      <div>
+        <dt><span class="tag" style="background:var(--gray-a)" aria-hidden="true"></span>2025 Student AI Survey</dt>
+        <dd>310 valid responses (3.4% response rate), all students. Shown as hollow circles.</dd>
+      </div>
+      <div>
+        <dt><span class="tag" style="background:var(--purple)" aria-hidden="true"></span>2026 Student AI Survey</dt>
+        <dd>925 valid responses (10.3% response rate), all students. Shown as filled circles.</dd>
+      </div>
+      <div>
+        <dt><span class="tag" style="background:var(--lilly-ink)" aria-hidden="true"></span>Spring 2026 study of undergraduates</dt>
+        <dd>851 survey responses (13%) and 41 listening-session participants, May 2026. Different questions, so it has <a href="#spring-study">its own section</a>.</dd>
+      </div>
+    </dl>
+    <div class="group-filter">
+      <label for="group-select">Show two-year survey results for</label>
+      <select id="group-select" data-group-select></select>
+      <p>Applies to every two-year chart on the page; each chart also has its own menu. Groups with fewer than 20 respondents in a year are not shown for that year. Group differences are descriptive and were not tested for significance.</p>
+    </div>
+  </div>
+</section>
+
+<!-- USE -->
+<section class="block" id="use" aria-labelledby="h-use">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill-src">2025 and 2026 Student AI Surveys</span>
+      <h2 class="sh" id="h-use">How often students use AI for academic work</h2>
+    </div>
+    <div class="lock-note" data-lock-for="p-weekly" hidden>
+      <p>This section opens after the prediction at the top of the page.</p>
+      <p><a href="#top">Go to the prediction</a> or <button type="button" class="theme-btn" data-skip-pred="p-weekly">show it now</button>.</p>
+    </div>
+    <div class="reveal" data-reveal-for="p-weekly">
+      <div class="prose">
+        <p>Weekly or more frequent use rose from <b>36.6%</b> in 2025 to <b>50.3%</b> in 2026. Most of that growth came from the middle: use that was monthly or less often than weekly fell from 40.5% to 29.1%. The share who never use AI for academic work moved less, from 23.0% to 20.6%.</p>
+      </div>
+      <figure class="fig" id="fig-freq">
+        <figcaption>
+          <p class="fig-title">Frequency of generative AI use for academic work</p>
+          <p class="fig-sub">Share of respondents, 2025 (n = 309) and 2026 (n = 921). Change in percentage points.</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <div class="two-col">
+        <div class="implication">
+          <h3>For your course</h3>
+          <p>Plan for a mixed room. In a class of 30, expect about 15 students who use AI weekly or more and about 6 who never use it for academic work. Directions that assume everyone uses AI, or that no one does, will miss part of the class. Try your own class size in <a href="#class-pic">Picture your class</a>.</p>
+          <p>Say what you expect for each assignment rather than leaving students to infer it from your general stance.</p>
+        </div>
+        <div class="research-note">
+          <p><strong>Reading the trend.</strong> In Rogers' diffusion of innovations model (2003), adoption passing 50% marks the move from the early majority to the late majority. The categories describe how a practice spreads, not students' character. Some non-users hold considered ethical objections (Jensen, 2026), and researchers have proposed "non-adopters" in place of "laggards" (Stewart et al., 2019).</p>
+        </div>
+      </div>
+      <div class="class-pic" id="class-pic">
+        <h3 id="cp-h">Picture your class</h3>
+        <p class="prose">Turn the percentages into people. Choose a class size and a group of students to see how a typical class would split, using the 2026 survey.</p>
+        <div class="cp-controls">
+          <div class="cp-ctl">
+            <label for="cp-size">Class size</label>
+            <div class="cp-size-row"><input type="range" id="cp-size" min="10" max="120" step="1" value="30" aria-valuetext="30 students"><output for="cp-size" id="cp-size-out" aria-hidden="true">30</output></div>
+          </div>
+          <div class="cp-ctl">
+            <label for="cp-group">Students from</label>
+            <select id="cp-group"></select>
+          </div>
+        </div>
+        <div class="cp-wrap">
+          <div class="cp-grid" id="cp-grid" role="img" aria-labelledby="cp-h cp-summary"></div>
+          <ul class="cp-legend" id="cp-legend"></ul>
+        </div>
+        <p class="fig-note" id="cp-summary"></p>
+      </div>
+
+      <h3>Beyond St. Thomas</h3>
+      <p class="prose src">National and international surveys use different populations and questions, so treat these as context, not benchmarks.</p>
+      <div class="context-strip">
+        <div><span class="num">95%</span><p>of UK full-time undergraduates use AI in some form; 94% for assessed work (HEPI and Kortext, 2026; n = 1,054).</p></div>
+        <div><span class="num">32%</span><p>of US college students use AI daily, below administrators at 43% (Tyton Partners, 2026).</p></div>
+        <div><span class="num">51%</span><p>of US undergraduates said they had received guidance on AI use in courses (EDUCAUSE, 2025; nearly 40,000 students).</p></div>
+      </div>
+      <details class="mynote" data-note="use">
+        <summary>Your notes on how often students use AI</summary>
+        <label for="note-use" class="sr-only">Your notes on how often students use AI</label>
+        <textarea id="note-use" rows="4" placeholder="What stood out? What might you change in one of your courses?"></textarea>
+        <p class="note-status" role="status"></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- PRACTICES -->
+<section class="block" id="practices" aria-labelledby="h-prac">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill-src">2025 and 2026 Student AI Surveys</span>
+      <h2 class="sh" id="h-prac">How students use AI in coursework</h2>
+    </div>
+    <div class="inline-pred predict" data-pred="p-noai"></div>
+    <div class="reveal" data-reveal-for="p-noai">
+      <div class="prose">
+        <p>In 2025, two answers tied at 48.1%: working on assignments without consulting AI, and consulting AI for ideas before writing. In 2026 the tie broke. Consulting AI for ideas rose to 49.3% and working without AI fell to 41.4%. The workflows that hand more of the writing to AI barely moved.</p>
+      </div>
+      <figure class="fig" id="fig-work">
+        <figcaption>
+          <p class="fig-title">How students typically use AI in coursework</p>
+          <p class="fig-sub">Select all that apply, so shares do not sum to 100%. 2025 (n = 310) and 2026 (n = 925).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <div class="two-col">
+        <div class="implication">
+          <h3>For your course</h3>
+          <p>The most common uses happen before anything is submitted: generating ideas and getting feedback. If the early thinking is what you want students to learn, build those steps into the assignment and give credit for them, such as a planning note, a first draft, or a short account of how the idea developed.</p>
+        </div>
+        <div class="research-note">
+          <p><strong>Why the early steps matter.</strong> Effort that feels slow often produces more durable learning (Bjork, 1994). In a field experiment, students with unrestricted GPT-4 access did better on practice problems but 17% worse once access was removed; a version designed to give hints instead of answers largely avoided the drop (Bastani et al., 2025). A lab study found ChatGPT improved essay scores without improving knowledge gain or transfer (Fan et al., 2025).</p>
+        </div>
+      </div>
+      <details class="mynote" data-note="practices">
+        <summary>Your notes on how students use AI</summary>
+        <label for="note-practices" class="sr-only">Your notes on how students use AI</label>
+        <textarea id="note-practices" rows="4" placeholder="What stood out? What might you change in one of your courses?"></textarea>
+        <p class="note-status" role="status"></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- INTEGRITY -->
+<section class="block" id="integrity" aria-labelledby="h-int">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill-src">2025 and 2026 Student AI Surveys</span>
+      <h2 class="sh" id="h-int">Where students draw the line</h2>
+    </div>
+    <div class="inline-pred predict" data-pred="p-paste"></div>
+    <div class="reveal" data-reveal-for="p-paste">
+      <div class="prose">
+        <p>Large majorities call it cheating to rely on AI to write an entire assignment (91.5%) or to submit AI work without acknowledgment (81.4%). Both shares dipped slightly from 2025. More students now place the line at the instructor's rules: using AI without permission rose from 54.2% to 58.6%. About a quarter see uncredited brainstorming help as cheating.</p>
+      </div>
+      <figure class="fig" id="fig-cheat">
+        <figcaption>
+          <p class="fig-title">When using AI counts as cheating or plagiarism, in students' view</p>
+          <p class="fig-sub">Select all that apply. 2025 (n = 310) and 2026 (n = 925).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <h3>How well students understand the policy</h3>
+      <p class="prose">Ratings of excellent or very good rose from 30.0% to 33.5%, and poor fell from 13.2% to 10.1%. The middle held: 56.4% still rate their understanding good or fair.</p>
+      <figure class="fig" id="fig-policy">
+        <figcaption>
+          <p class="fig-title">Self-rated understanding of the university's academic integrity policies on AI</p>
+          <p class="fig-sub">2025 (n = 310) and 2026 (n = 917).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <div class="implication">
+        <h3>For your course</h3>
+        <p>Students increasingly look to the instructor for the rule, and most are only moderately sure of the policy. State expectations at the assignment level, and say whether and how to acknowledge AI help with ideas, since three in four students do not see uncredited brainstorming as cheating.</p>
+        <p>The <a href="#planner">assignment planner</a> and <a href="#builder">syllabus statement builder</a> below produce this language.</p>
+      </div>
+      <details class="mynote" data-note="integrity">
+        <summary>Your notes on where students draw the line</summary>
+        <label for="note-integrity" class="sr-only">Your notes on where students draw the line</label>
+        <textarea id="note-integrity" rows="4" placeholder="What stood out? What might you change in one of your courses?"></textarea>
+        <p class="note-status" role="status"></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONCERNS -->
+<section class="block" id="concerns" aria-labelledby="h-con">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill-src">2025 and 2026 Student AI Surveys</span>
+      <h2 class="sh" id="h-con">What students worry about</h2>
+    </div>
+    <div class="inline-pred predict" data-pred="p-ct"></div>
+    <div class="reveal" data-reveal-for="p-ct">
+      <div class="prose">
+        <p>Concern about a decline in critical thinking held at 87.0%, the highest of eleven items in both years. Concerns about students' own skills held steady or rose. Concerns about AI's wider effects rose, led by energy and environmental impact (up 11.5 points, the largest change in the survey). Concerns about AI's reliability, ethics, and policy fell.</p>
+      </div>
+      <figure class="fig" id="fig-concern">
+        <figcaption>
+          <p class="fig-title">Share concerned or very concerned, by issue</p>
+          <p class="fig-sub">2025 (n = 308 to 309) and 2026 (n = 920 to 925). Axis starts at 50%.</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+
+      <h3>Who is more concerned (2026)</h3>
+      <div role="tablist" aria-label="Compare concern by group" id="sub-tabs">
+        <button role="tab" id="tab-freq" aria-controls="panel-sub" aria-selected="true">By how often students use AI</button>
+        <button role="tab" id="tab-gender" aria-controls="panel-sub" aria-selected="false" tabindex="-1">By gender</button>
+      </div>
+      <div role="tabpanel" id="panel-sub" aria-labelledby="tab-freq" tabindex="0">
+        <figure class="fig" id="fig-sub">
+          <figcaption>
+            <p class="fig-title" id="sub-title"></p>
+            <p class="fig-sub" id="sub-sub"></p>
+          </figcaption>
+          <div class="chart"></div>
+          <p class="fig-note" id="sub-note"></p>
+        </figure>
+      </div>
+
+      <div class="two-col">
+        <div class="implication">
+          <h3>For your course</h3>
+          <p>Students share the worry many faculty hold. Name critical thinking as a goal and show students where an assignment builds it; most will recognize the reason.</p>
+          <p>Concern differs by use. Students who rarely use AI may want a way to complete work without it. Frequent users, who report less concern about bias and privacy, may gain the most from tasks that test AI output.</p>
+        </div>
+        <div class="research-note">
+          <p><strong>On the critical thinking worry.</strong> A survey of 666 participants found heavier AI use associated with lower critical thinking scores, partly through cognitive offloading, with the strongest pattern among people aged 17 to 25 (Gerlich, 2025). The design is correlational, so it cannot show that AI caused the difference. It does support designing tasks that keep the reasoning with the student.</p>
+        </div>
+      </div>
+      <details class="mynote" data-note="concerns">
+        <summary>Your notes on what students worry about</summary>
+        <label for="note-concerns" class="sr-only">Your notes on what students worry about</label>
+        <textarea id="note-concerns" rows="4" placeholder="What stood out? What might you change in one of your courses?"></textarea>
+        <p class="note-status" role="status"></p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- SPRING STUDY -->
+<section class="block lens" id="spring-study" aria-labelledby="h-lens">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="lens-tag">Spring 2026 study of undergraduates</span>
+      <h2 class="sh" id="h-lens">Undergraduates on how they use AI, and what they want from faculty</h2>
+    </div>
+    <div class="method-box">
+      <h3>How this study differs</h3>
+      <p>Commissioned for the University's Lilly Endowment grant work and conducted by Katie Jensen Consulting in May 2026. It asked about AI use in general over the past three months, not only for academic work. Figures in this section are not directly comparable with the two-year survey.</p>
+      <div class="table-scroll">
+      <table class="compare-table">
+        <caption class="sr-only">Comparison of the two data sources</caption>
+        <thead><tr><th scope="col"><span class="sr-only">Feature</span></th><th scope="col">Two-year survey, 2026</th><th scope="col">Spring 2026 study</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Who</th><td>All students, including graduate and law</td><td>Undergraduates, including Dougherty Family College</td></tr>
+          <tr><th scope="row">Responses</th><td>925 (10.3%)</td><td>851 (13%) plus 41 in listening sessions</td></tr>
+          <tr><th scope="row">Use question</th><td>How often for academic work</td><td>How often for anything, past three months</td></tr>
+          <tr><th scope="row">Non-use</th><td>20.6% never use AI for academic work</td><td>9% rarely or never use AI at all</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="src" style="margin:.6rem 0 0">In this study, heavy users use AI daily or more; casual users use it more than monthly but not daily. Both samples are self-selected.</p>
+    </div>
+
+    <h3>AI use by school or college and class year</h3>
+    <figure class="fig" id="fig-college">
+      <figcaption>
+        <p class="fig-sub">Share of undergraduate respondents in each group. Groups with fewer than 50 respondents are not shown.</p>
+      </figcaption>
+      <div class="chart table-scroll"></div>
+      <p class="fig-note">Business (Opus) students reported the most heavy use and almost no non-use; Arts and Sciences students reported the most non-use. The report does not break out the School of Education or graduate programs.</p>
+    </figure>
+
+    <div class="two-col">
+      <figure class="fig" id="fig-mostly">
+        <figcaption>
+          <p class="fig-title">When you use AI for school, it mostly...</p>
+          <p class="fig-sub">AI users, choose one (n = 775).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <figure class="fig" id="fig-concern-l">
+        <figcaption>
+          <p class="fig-title">What concerns students most about AI</p>
+          <p class="fig-sub">Choose up to three. Heavy users (n = 391) and casual users (n = 384).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+    </div>
+    <p class="prose">AI users describe AI more as a tutor than a substitute. Their top concern is becoming dependent on it. Casual users worry more about environmental impact (48% vs. 30%) and are about twice as likely to always double-check AI answers against other sources (27% vs. 14%).</p>
+
+    <h3>Who students ask about AI</h3>
+    <div class="inline-pred predict" data-pred="p-prof"></div>
+    <div class="reveal" data-reveal-for="p-prof">
+      <figure class="fig" id="fig-ask">
+        <figcaption>
+          <p class="fig-title">When you have a question about whether or how to use AI, who or what do you turn to?</p>
+          <p class="fig-sub">AI users, choose all that apply (n = 775).</p>
+        </figcaption>
+        <div class="chart"></div>
+      </figure>
+      <p class="prose">Heavy users were less likely than casual users to ask professors (23% vs. 31%). In listening sessions, students described faculty stances on a range from forbidding to integrating, and said that variation from course to course leaves them unsure what is fair.</p>
+      <div class="spectrum" role="list" aria-label="Faculty stances students described, from most restrictive to most open">
+        <div role="listitem"><h4>Forbidding</h4><p>No role for AI; often uses detectors, blue books, or handwritten work.</p></div>
+        <div role="listitem"><h4>Indifferent</h4><p>Little or no guidance; unclear whether use would be questioned.</p></div>
+        <div role="listitem"><h4>Guiding</h4><p>Suggests appropriate uses and draws clear lines where AI is not allowed.</p></div>
+        <div role="listitem"><h4>Integrating</h4><p>Builds AI into coursework and discusses the tradeoffs openly.</p></div>
+      </div>
+    </div>
+
+    <h3>What students want from St. Thomas</h3>
+    <figure class="fig" id="fig-want">
+      <figcaption>
+        <p class="fig-title">Looking ahead, what would you want from St. Thomas related to AI?</p>
+        <p class="fig-sub">Choose up to three. AI users (n = 775) and non-users (n = 76). Top ten items.</p>
+      </figcaption>
+      <div class="chart"></div>
+      <p class="fig-note">Non-users asked most for guidance on ethical use (42%) and chances to discuss AI's effect on society (34%). In the two-year survey, students ranked clearer guidelines on acceptable use first and clear AI guidelines in the syllabus second among seven supports (2026, n = 871); 76.8% placed clearer guidelines in their top three.</p>
+    </figure>
+    <p class="prose">When asked how their AI use relates to their values, 41% of AI users said they had not thought about it yet; 30% said it is sometimes aligned and sometimes not; 14% said it is often in tension.</p>
+
+    <h3>In their words</h3>
+    <ul class="quotes">
+      <li><blockquote><p>"It's like having an on-demand instructor. Sometimes you can't reach out to learn, it can stand in and help when you need it."</p></blockquote><p class="who">AI user, listening session</p></li>
+      <li><blockquote><p>"If I've got an assignment due and have procrastinated, or I'm in a time crunch, those boundaries can go away."</p></blockquote><p class="who">AI user, listening session</p></li>
+      <li><blockquote><p>"I'm studying to become a nurse. I can't use AI to avoid actually learning, or someone could get hurt."</p></blockquote><p class="who">AI user, listening session</p></li>
+      <li><blockquote><p>"With a professor, I am not always comfortable telling them they didn't understand my question... or that I didn't understand their response."</p></blockquote><p class="who">AI user, listening session</p></li>
+    </ul>
+
+    <div class="implication" style="border-color:var(--lilly-ink)">
+      <h3>For your course</h3>
+      <p>Students set their own rules, and those rules give way under time pressure. They want course-level rules with reasons, consistency, and a safe way to ask. Say in class that questions about AI are welcome and will be treated as questions. Explain what each assignment is meant to build, so the reason for a limit is visible when deadlines press.</p>
+    </div>
+    <details class="mynote" data-note="spring">
+      <summary>Your notes on the spring 2026 study</summary>
+      <label for="note-spring" class="sr-only">Your notes on the spring 2026 study</label>
+      <textarea id="note-spring" rows="4" placeholder="What stood out? What might you change in one of your courses?"></textarea>
+      <p class="note-status" role="status"></p>
+    </details>
+  </div>
+</section>
+
+<!-- PREDICTION SUMMARY -->
+<section class="block" id="your-predictions" aria-labelledby="h-sum">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="sh" id="h-sum">Your predictions and notes</h2>
+      <p>Everything you enter on this page stays in this browser on this device. Come back later and it will still be here, or download it to keep or share.</p>
+    </div>
+    <div id="pred-summary" aria-live="polite"></div>
+    <div id="notes-summary"></div>
+    <div class="copy-row" style="margin-top:1.25rem">
+      <button type="button" class="btn btn-primary btn-small" id="export-btn">Download my predictions and notes</button>
+      <button type="button" class="btn btn-quiet btn-small" id="clear-btn">Clear everything saved on this device</button>
+      <span class="copied" id="export-status" role="status"></span>
+    </div>
+  </div>
+</section>
+
+<!-- APPLY -->
+<section class="block" id="apply" aria-labelledby="h-apply">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="sh" id="h-apply">From evidence to course design</h2>
+      <p>These tools follow an AI-aware approach: start from what an assignment is for, then decide AI's role, whether that means using AI, setting firm limits, or something between (Vee et al., 2026). They build on six principles.</p>
+    </div>
+    <ul class="principles">
+      <li><h3>Start with the learning goal</h3><p>Decide what students must be able to do, then choose AI's role. The goal, not the tool, sets the rule (Vee et al., 2026; Bowen &amp; Watson, 2025).</p></li>
+      <li><h3>Make purpose, task, and criteria explicit</h3><p>Transparent assignment design improved students' confidence, belonging, and skill development, with larger gains for first-generation, low-income, and underrepresented students (Winkelmes et al., 2016).</p></li>
+      <li><h3>Use a scale, not a yes or no</h3><p>Levels of permitted AI use give students and instructors a shared vocabulary (Perkins et al., 2024).</p></li>
+      <li><h3>Change the structure, not only the rules</h3><p>A rule students cannot be seen to follow does not secure an assessment. Build validity into the task itself, through observed work, process evidence, or conversation (Corbin et al., 2025; Lodge et al., 2023).</p></li>
+      <li><h3>Keep the productive struggle</h3><p>Protect the effortful steps that build a skill, and use AI where it removes effort that does not teach (Bjork, 1994; Bastani et al., 2025).</p></li>
+      <li><h3>Offer more than one path</h3><p>Some students choose not to use AI for ethical reasons. Provide ways to reach the same goal with and without it (CAST, 2024; Jensen, 2026).</p></li>
+    </ul>
+
+    <h3 id="levels-h">Five levels of AI use</h3>
+    <p class="prose">Both tools use this scale, adapted from the AI Assessment Scale (Perkins et al., 2024). A course can use different levels for different assignments.</p>
+    <ol class="levels-ref" aria-labelledby="levels-h">
+      <li><strong>No AI</strong><span>Work completed without AI tools.</span></li>
+      <li><strong>AI to learn, not to produce</strong><span>Explanations, quizzing, starting points; no AI output in the submission.</span></li>
+      <li><strong>AI feedback on your own draft</strong><span>Student writes first; AI critiques; student decides.</span></li>
+      <li><strong>AI as a disclosed collaborator</strong><span>AI generates parts; student directs, verifies, revises, documents.</span></li>
+      <li><strong>AI as the subject of study</strong><span>Students test and critique AI output.</span></li>
+    </ol>
+
+    <!-- PLANNER -->
+    <div class="tool" id="planner">
+      <h3 style="margin-top:0">Plan an assignment</h3>
+      <p class="prose src">Answer a few questions about one assignment. You get a suggested level, the evidence behind it, design moves that make it work, and directions you can paste into the assignment. Nothing you enter leaves this page.</p>
+      <div class="tool-grid">
+        <form id="planner-form">
+          <fieldset>
+            <legend>What is this assignment mainly for?</legend>
+            <label class="opt"><input type="radio" name="purpose" value="foundation" checked><span>Practice a foundational skill<span class="help">Something students will need to do well on their own, such as early writing, problem solving, or clinical reasoning.</span></span></label>
+            <label class="opt"><input type="radio" name="purpose" value="verify"><span>Confirm independent mastery<span class="help">An exam, skills check, or task that certifies what a student can do alone.</span></span></label>
+            <label class="opt"><input type="radio" name="purpose" value="process"><span>Develop thinking through a process<span class="help">Research, drafting, design iteration, or analysis built over several steps.</span></span></label>
+            <label class="opt"><input type="radio" name="purpose" value="professional"><span>Produce work the way practitioners do<span class="help">Work that mirrors how people in the field now use AI tools.</span></span></label>
+            <label class="opt"><input type="radio" name="purpose" value="critique"><span>Examine or critique AI itself<span class="help">Students test what AI gets right and wrong in your subject.</span></span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Will students need this skill without AI later?</legend>
+            <label class="opt"><input type="radio" name="unaided" value="yes" checked><span>Yes, in later courses, licensure, or practice</span></label>
+            <label class="opt"><input type="radio" name="unaided" value="partly"><span>Partly</span></label>
+            <label class="opt"><input type="radio" name="unaided" value="no"><span>No, AI will be a normal tool for this work</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>Where does the work happen?</legend>
+            <label class="opt"><input type="radio" name="observe" value="class"><span>Mostly in class or supervised</span></label>
+            <label class="opt"><input type="radio" name="observe" value="some" checked><span>Outside class, with checkpoints I see</span></label>
+            <label class="opt"><input type="radio" name="observe" value="none"><span>Entirely outside class</span></label>
+          </fieldset>
+          <fieldset>
+            <legend>What does the assignment say about AI now? <span class="help" style="font-weight:400">Optional</span></legend>
+            <label class="opt"><input type="radio" name="current" value="0" checked><span>Nothing yet, or I'm not sure</span></label>
+            <label class="opt"><input type="radio" name="current" value="1"><span>No AI</span></label>
+            <label class="opt"><input type="radio" name="current" value="2"><span>AI to learn, not to produce</span></label>
+            <label class="opt"><input type="radio" name="current" value="3"><span>AI feedback on the student's own draft</span></label>
+            <label class="opt"><input type="radio" name="current" value="4"><span>AI as a disclosed collaborator</span></label>
+            <label class="opt"><input type="radio" name="current" value="5"><span>AI as the subject of study</span></label>
+          </fieldset>
+          <button type="submit" class="btn btn-primary">Show a suggested level</button>
+        </form>
+        <div id="planner-out" class="out" aria-live="polite" tabindex="-1">
+          <h3>Your suggestion appears here</h3>
+          <p class="src">Choose your answers and select <b>Show a suggested level</b>. The result is a starting point for your judgment, not a rule.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- BUILDER -->
+    <div class="tool" id="builder">
+      <h3 style="margin-top:0">Build a syllabus statement</h3>
+      <p class="prose src">Students ranked clearer guidelines and AI guidance in the syllabus as their top two supports, and asked for the reason behind each rule. This builder writes a statement that gives both. Edit the result freely.</p>
+      <div class="tool-grid">
+        <form id="builder-form">
+          <label class="field" for="b-course">Course</label>
+          <input type="text" id="b-course" value="" placeholder="For example, ENGL 121">
+          <p class="field-help">Optional. Used in the statement title.</p>
+
+          <fieldset>
+            <legend>Overall approach</legend>
+            <label class="opt"><input type="radio" name="b-stance" value="limited"><span>AI use is limited in this course</span></label>
+            <label class="opt"><input type="radio" name="b-stance" value="specific" checked><span>AI is allowed for specific purposes</span></label>
+            <label class="opt"><input type="radio" name="b-stance" value="integrated"><span>AI is part of the work in this course</span></label>
+          </fieldset>
+
+          <label class="field" for="b-goal">The learning goal that shapes your approach</label>
+          <textarea id="b-goal" aria-describedby="b-goal-help">build and defend an argument from evidence in your own words</textarea>
+          <p class="field-help" id="b-goal-help">Complete the sentence "In this course you will learn to..."</p>
+
+          <fieldset>
+            <legend>Uses you allow</legend>
+            <label class="opt"><input type="checkbox" name="b-use" value="explain" checked><span>Explaining concepts or answering questions about readings</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="ideas" checked><span>Brainstorming or finding a starting point</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="quiz"><span>Quizzing yourself to study</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="feedback" checked><span>Feedback on a draft you wrote</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="edit"><span>Grammar and spelling checks</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="code"><span>Debugging or explaining code</span></label>
+            <label class="opt"><input type="checkbox" name="b-use" value="generate"><span>Generating parts of the work, with disclosure</span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>How students acknowledge AI use</legend>
+            <label class="opt"><input type="radio" name="b-disc" value="note" checked><span>A short note at the end of the assignment</span></label>
+            <label class="opt"><input type="radio" name="b-disc" value="log"><span>An AI-use log: what they asked, kept, and changed</span></label>
+            <label class="opt"><input type="radio" name="b-disc" value="links"><span>Links to or copies of the conversations</span></label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Also include</legend>
+            <label class="opt"><input type="checkbox" name="b-inc" value="verify" checked><span>Students are responsible for accuracy</span></label>
+            <label class="opt"><input type="checkbox" name="b-inc" value="optout" checked><span>Choosing not to use AI is always acceptable</span></label>
+            <label class="opt"><input type="checkbox" name="b-inc" value="ask" checked><span>Questions about AI are welcome</span></label>
+            <label class="opt"><input type="checkbox" name="b-inc" value="assignment" checked><span>Assignment directions take precedence</span></label>
+            <label class="opt"><input type="checkbox" name="b-inc" value="ethics"><span>The course will discuss AI's ethical and environmental questions</span></label>
+          </fieldset>
+        </form>
+        <div>
+          <h4 id="stmt-h" style="margin-top:0">Your statement</h4>
+          <div class="statement" id="stmt" aria-labelledby="stmt-h" aria-live="polite" tabindex="0"></div>
+          <div class="copy-row">
+            <button type="button" class="btn btn-primary btn-small" id="stmt-copy">Copy statement</button>
+            <button type="button" class="btn btn-quiet btn-small" id="stmt-dl">Download as text file</button>
+            <span class="copied" id="stmt-copied" role="status"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUIDES -->
+<section class="block" id="guides" aria-labelledby="h-guides">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="sh" id="h-guides">Discussion guides</h2>
+      <p>Three ready-to-run formats for faculty learning communities, department meetings, the AI Practitioners Group, or your own class. Each prints on its own.</p>
+    </div>
+    <div role="tablist" aria-label="Discussion guides" id="guide-tabs">
+      <button role="tab" id="gt-1" aria-controls="gp-1" aria-selected="true">Department or program meeting</button>
+      <button role="tab" id="gt-2" aria-controls="gp-2" aria-selected="false" tabindex="-1">Faculty learning community</button>
+      <button role="tab" id="gt-3" aria-controls="gp-3" aria-selected="false" tabindex="-1">Conversation with your students</button>
+    </div>
+
+    <div role="tabpanel" id="gp-1" aria-labelledby="gt-1" class="guide" tabindex="0">
+      <h3>Read the room together</h3>
+      <div class="guide-meta"><span><b>Time:</b> 40 minutes</span><span><b>Group:</b> 4 to 20 faculty</span><span><b>Bring:</b> this page on a shared screen; a list of your program's major assignments</span></div>
+      <p class="prose"><b>Goal:</b> agree on one change that makes AI expectations more consistent for students across your program.</p>
+      <ol class="steps">
+        <li><span class="time">5 min.</span> Everyone writes down three guesses: the share of students who use AI weekly or more, the share who work on assignments without AI, and the share worried about losing critical thinking skills. Compare guesses before revealing the answers on this page.</li>
+        <li><span class="time">10 min.</span> Look at the answers. Ask: which result surprised us most, and what shaped our expectation? Which results matter most for our discipline?</li>
+        <li><span class="time">15 min.</span> List three to five major assignments in the program. Place each on the five-level scale. Where would a student taking two of our courses in the same term get different messages? Students in the spring 2026 study described that inconsistency as a source of anxiety about fairness.</li>
+        <li><span class="time">10 min.</span> Choose one shared commitment, such as common syllabus language, a common way to acknowledge AI use, or a shared explanation of why certain skills are practiced without AI. Name who will draft it and when.</li>
+      </ol>
+      <h4>Questions to keep in view</h4>
+      <ul class="prose">
+        <li>Our students rank clear guidelines first. Could a student state our program's expectations?</li>
+        <li>About one in five students never uses AI for academic work. Do any of our assignments require it without offering another path?</li>
+      </ul>
+      <button type="button" class="btn btn-quiet btn-small" data-print="gp-1">Print this guide</button>
+    </div>
+
+    <div role="tabpanel" id="gp-2" aria-labelledby="gt-2" class="guide" tabindex="0" hidden>
+      <h3>Redesign one assignment</h3>
+      <div class="guide-meta"><span><b>Time:</b> 60 minutes</span><span><b>Group:</b> pairs or trios within a larger group</span><span><b>Bring:</b> one current assignment each</span></div>
+      <p class="prose"><b>Goal:</b> leave with a revised assignment whose purpose, AI rules, and criteria a student could restate.</p>
+      <ol class="steps">
+        <li><span class="time">10 min.</span> Individually, write one sentence on what the assignment is for. Then answer: which step would a student most likely hand to AI, and is that the step where the learning happens?</li>
+        <li><span class="time">10 min.</span> Run the assignment through the <a href="#planner">planner</a>. Compare the suggested level with your current rule. Note any gap.</li>
+        <li><span class="time">15 min.</span> Make one structural change, not only a rule change: an in-class step, a draft checkpoint, a short oral explanation, a revision note, or a comparison with AI output (Corbin et al., 2025).</li>
+        <li><span class="time">15 min.</span> Rewrite the directions with a purpose, the task steps, the criteria, and the AI rule with its reason (Winkelmes et al., 2016). Trade with a partner. Can your partner restate what is allowed and why?</li>
+        <li><span class="time">10 min.</span> Share one change with the group. Agree to try it and report back at the next meeting on what students did and said.</li>
+      </ol>
+      <h4>Questions to keep in view</h4>
+      <ul class="prose">
+        <li>Only 1.4% of students report submitting AI output unedited, but 49.3% use AI for ideas. Which of those two matters more for this assignment?</li>
+        <li>What would a student who does not use AI do at each step?</li>
+      </ul>
+      <button type="button" class="btn btn-quiet btn-small" data-print="gp-2">Print this guide</button>
+    </div>
+
+    <div role="tabpanel" id="gp-3" aria-labelledby="gt-3" class="guide" tabindex="0" hidden>
+      <h3>Ask your students</h3>
+      <div class="guide-meta"><span><b>Time:</b> 20 minutes of class</span><span><b>Group:</b> any class size</span><span><b>Bring:</b> index cards or an anonymous poll</span></div>
+      <p class="prose"><b>Goal:</b> hear how your students use AI in your course and agree on norms they understand. Students in the spring 2026 study said they want to ask about AI without being treated as suspects, and only 27% of AI users turn to professors now.</p>
+      <ol class="steps">
+        <li><span class="time">3 min.</span> Explain why you are asking: you want the course's AI rules to support their learning, and you will use what they say.</li>
+        <li><span class="time">5 min.</span> Share two St. Thomas findings: 87% of students worry AI could weaken critical thinking, and half use AI weekly or more. Ask students to write anonymously: where in this course could AI help you learn, and where could it get in the way?</li>
+        <li><span class="time">7 min.</span> Read a sample of cards aloud. Connect what students wrote to the purpose of one upcoming assignment.</li>
+        <li><span class="time">5 min.</span> State the AI expectations for that assignment and the reason for them. Invite follow-up questions in office hours or by email, and say that asking will never count against them.</li>
+      </ol>
+      <h4>After class</h4>
+      <ul class="prose">
+        <li>Adjust one assignment direction based on what you read, and tell students what you changed.</li>
+        <li>Note which uses students named that you had not anticipated.</li>
+      </ul>
+      <button type="button" class="btn btn-quiet btn-small" data-print="gp-3">Print this guide</button>
+    </div>
+  </div>
+</section>
+
+<!-- SOURCES -->
+<section class="block refs" id="sources" aria-labelledby="h-src">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="sh" id="h-src">Sources and methods</h2>
+    </div>
+
+    <h3>Data sources</h3>
+    <ol>
+      <li>University of St. Thomas. (2025). <i>Student AI Survey</i> [Unpublished raw data; 310 valid responses]. Analysis reported in Chou and Keiser (2026).</li>
+      <li>University of St. Thomas. (2026). <i>Student AI Survey</i> [Unpublished raw data; 925 valid responses]. Analysis reported in Chou and Keiser (2026).</li>
+      <li>Chou, C. C., &amp; Keiser, J. (2026). <i>Tracking student adoption and perceptions of generative AI across two years</i> [Proposal submitted to the 2027 annual meeting of the American Educational Research Association]. University of St. Thomas.</li>
+      <li>Jensen, K. (2026, May 18). <i>Understanding student use and perceptions of AI</i> [Research report prepared for the University of St. Thomas]. Katie Jensen Consulting.</li>
+    </ol>
+
+    <h3>Methods notes</h3>
+    <ul class="method-list">
+      <li>Two-year survey figures match the AERA proposal tables. Participants who answered fewer than half of the non-demographic questions were excluded. Item-level n varies slightly with item nonresponse.</li>
+      <li>Year-over-year changes are differences of the published one-decimal values.</li>
+      <li>Concern items were coded in opposite directions in the two years and harmonized so that 5 means most concerned. The 2025 data privacy item was worded as an ethical concern and is mapped to the 2026 data privacy item, following the AERA analysis.</li>
+      <li>Group comparisons of concern used Mann-Whitney U tests on 2026 data, with Bonferroni-corrected alpha of .0045 and effect size r (.1 small, .3 medium; Cohen, 1988). Average concern is shown reversed from the survey's coding so that higher values mean more concern.</li>
+      <li>The 2025 and 2026 questions on preferred training formats used single-select and multi-select formats and are not compared here.</li>
+      <li>Spring 2026 study figures are reproduced from the published report; the study's statistical tests compared heavy and casual users at 95% confidence. Results by gender from that study are not shown pending verification of the report's table.</li>
+      <li>All three sources rely on voluntary participation and self-report, so results may not represent all students.</li>
+    </ul>
+
+    <h3>Teaching research and frameworks</h3>
+    <ul>
+      <li>Vee, A., Watkins, M., &amp; Bruff, D. (2026). <i>The Norton guide to AI-aware teaching</i>. W. W. Norton. <a href="https://seagull.wwnorton.com/aiaware/guide">Guide page</a>
+        <span class="used">Shaped the overall approach: start from learning goals and allow any stance from embracing AI to firm limits.</span></li>
+      <li>Vee, A., Watkins, M., &amp; Bruff, D. (2026, June 3). AI-aware teaching [Podcast episode]. In <i>Tea for Teaching</i>. <a href="https://teaforteaching.podbean.com/e/ai-aware-teaching/">Episode</a>; also Vee on <i>Designed for Learning</i>, episode 18, University of Notre Dame. <a href="https://learning.nd.edu/resource-library/ep-18-annette-vee-on-ai-aware-teaching/">Episode</a>
+        <span class="used">Context for the authors' framing of AI awareness across faculty viewpoints.</span></li>
+      <li>Bruff, D. (Host). (2022 to present). <i>Intentional Teaching</i> [Podcast]. <a href="https://intentionalteaching.buzzsprout.com/2069949/episodes">Episodes</a>
+        <span class="used">Faculty examples of AI-aware assignments.</span></li>
+      <li>Perkins, M., Roe, J., &amp; Furze, L. (2024). <i>The AI Assessment Scale revisited: A framework for educational assessment</i> (arXiv:2412.09029). <a href="https://arxiv.org/abs/2412.09029">arXiv</a>; Perkins, M., Furze, L., Roe, J., &amp; MacVaugh, J. (2024). The AI Assessment Scale (AIAS). <i>Journal of University Teaching and Learning Practice, 21</i>(6).
+        <span class="used">Basis for the five-level scale used in the planner and builder.</span></li>
+      <li>Corbin, T., Dawson, P., &amp; Liu, D. (2025). Talk is cheap: Why structural assessment changes are needed for a time of GenAI. <i>Assessment &amp; Evaluation in Higher Education</i>. <a href="https://doi.org/10.1080/02602938.2025.2503964">doi.org/10.1080/02602938.2025.2503964</a>
+        <span class="used">Basis for the planner's "make it hold" design moves and the warning about unobservable rules.</span></li>
+      <li>Lodge, J. M., Howard, S., Bearman, M., Dawson, P., &amp; Associates. (2023). <i>Assessment reform for the age of artificial intelligence</i>. Tertiary Education Quality and Standards Agency. <a href="https://www.teqsa.gov.au/guides-resources/resources/corporate-publications/assessment-reform-age-artificial-intelligence">TEQSA</a>
+        <span class="used">Program-level view of assessment informing the department meeting guide.</span></li>
+      <li>University of Sydney. (2024). Program level assessment design and the two-lane approach. <i>Teaching@Sydney</i>. <a href="https://educational-innovation.sydney.edu.au/teaching@sydney/">Teaching@Sydney</a>
+        <span class="used">Pairing secured and open assessments when a skill must be performed without AI.</span></li>
+      <li>Winkelmes, M.-A., Bernacki, M., Butler, J., Zochowski, M., Golanics, J., &amp; Weavil, K. H. (2016). A teaching intervention that increases underserved college students' success. <i>Peer Review, 18</i>(1/2), 31&ndash;36. <a href="https://tilthighered.com/">TILT Higher Ed</a>
+        <span class="used">Purpose, task, and criteria structure of the student-facing directions.</span></li>
+      <li>Bjork, R. A. (1994). Memory and metamemory considerations in the training of human beings. In J. Metcalfe &amp; A. P. Shimamura (Eds.), <i>Metacognition: Knowing about knowing</i> (pp. 185&ndash;205). MIT Press.
+        <span class="used">Desirable difficulties: why the planner protects effortful steps.</span></li>
+      <li>Bastani, H., Bastani, O., Sungu, A., Ge, H., Kabakc&#305;, &Ouml;., &amp; Mariman, R. (2025). Generative AI without guardrails can harm learning: Evidence from high school mathematics. <i>Proceedings of the National Academy of Sciences, 122</i>(26), e2422633122. <a href="https://doi.org/10.1073/pnas.2422633122">doi.org/10.1073/pnas.2422633122</a>
+        <span class="used">Evidence for hint-based rather than answer-giving AI support at level 2.</span></li>
+      <li>Fan, Y., Tang, L., Le, H., Shen, K., Tan, S., Zhao, Y., Shen, Y., Li, X., &amp; Ga&scaron;evi&cacute;, D. (2025). Beware of metacognitive laziness: Effects of generative artificial intelligence on learning motivation, processes, and performance. <i>British Journal of Educational Technology, 56</i>(2), 489&ndash;530.
+        <span class="used">Performance gains without learning gains; supports process steps and reflection.</span></li>
+      <li>Gerlich, M. (2025). AI tools in society: Impacts on cognitive offloading and the future of critical thinking. <i>Societies, 15</i>(1), 6. <a href="https://doi.org/10.3390/soc15010006">doi.org/10.3390/soc15010006</a>
+        <span class="used">Context for students' critical thinking concern, with its correlational limits noted.</span></li>
+      <li>Bowen, J. A., &amp; Watson, C. E. (2025). <i>Teaching with AI: A practical guide to a new era of human learning</i> (2nd ed.). Johns Hopkins University Press.
+        <span class="used">Assignment and policy design examples.</span></li>
+      <li>CAST. (2024). <i>Universal Design for Learning Guidelines version 3.0</i>. <a href="https://udlguidelines.cast.org/">udlguidelines.cast.org</a>
+        <span class="used">Multiple paths to the same goal, including non-AI options.</span></li>
+      <li>Rogers, E. M. (2003). <i>Diffusion of innovations</i> (5th ed.). Free Press.
+        <span class="used">Interpretive frame for the adoption trend.</span></li>
+      <li>Stewart, R. E., Beidas, R. S., &amp; Mandell, D. S. (2019). Stop calling them laggards: Strategies for encouraging nonadopters to incorporate evidence-based practices. <i>Psychiatric Services, 70</i>(10), 958&ndash;960. <a href="https://doi.org/10.1176/appi.ps.201900031">doi.org/10.1176/appi.ps.201900031</a></li>
+    </ul>
+
+    <h3>Design of this site</h3>
+    <ul>
+      <li>Brod, G. (2021). Predicting as a learning strategy. <i>Psychonomic Bulletin &amp; Review, 28</i>, 1839&ndash;1847. <a href="https://doi.org/10.3758/s13423-021-01904-1">doi.org/10.3758/s13423-021-01904-1</a>; Brod, G., Hasselhorn, M., &amp; Bunge, S. A. (2018). When generating a prediction boosts learning: The element of surprise. <i>Learning and Instruction, 55</i>, 22&ndash;31.
+        <span class="used">Basis for the predict-first sequence.</span></li>
+      <li>Galesic, M., Garcia-Retamero, R., &amp; Gigerenzer, G. (2009). Using icon arrays to communicate medical risks: Overcoming low numeracy. <i>Health Psychology, 28</i>(2), 210&ndash;216.
+        <span class="used">Basis for "Picture your class," which shows shares as counts of students.</span></li>
+      <li>Franconeri, S. L., Padilla, L. M., Shah, P., Zacks, J. M., &amp; Hullman, J. (2021). The science of visual data communication: What works. <i>Psychological Science in the Public Interest, 22</i>(3), 110&ndash;161. <a href="https://doi.org/10.1177/15291006211051956">doi.org/10.1177/15291006211051956</a>
+        <span class="used">One chart form for all year-to-year comparisons, direct labels, and grouping that guides the intended comparison.</span></li>
+      <li>World Wide Web Consortium. (2023). <i>Web Content Accessibility Guidelines (WCAG) 2.2</i>. <a href="https://www.w3.org/TR/WCAG22/">w3.org/TR/WCAG22</a>
+        <span class="used">Accessibility standard for this site, at level AA.</span></li>
+    </ul>
+
+    <h3>National context</h3>
+    <ul>
+      <li>Stephenson, R., &amp; Armstrong, C. (2026). <i>Student generative AI survey 2026</i> (HEPI Report 199). Higher Education Policy Institute. <a href="https://www.hepi.ac.uk/reports/student-generative-ai-survey-2026/">HEPI</a></li>
+      <li>Tyton Partners. (2026). <i>Time for class 2026</i>. <a href="https://tytonpartners.com/">Tyton Partners</a></li>
+      <li>Muscanell, N., &amp; Gay, K. (2025). <i>2025 EDUCAUSE students and technology report</i>. EDUCAUSE. <a href="https://www.educause.edu/content/2025/students-and-technology-report">EDUCAUSE</a></li>
+      <li>Cohen, J. (1988). <i>Statistical power analysis for the behavioral sciences</i> (2nd ed.). Lawrence Erlbaum Associates.</li>
+    </ul>
+  </div>
+</section>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Prepared by STELAR (Strategic Transformation in Education, Learning, And Research), University of St. Thomas, Minnesota. Survey analysis by Chientzu Candace Chou and Jonathan Keiser. Site built by STELAR with Claude (Anthropic). October 2026.</p>
+    <p>Accessibility: this page is designed to meet WCAG 2.2 level AA. Every chart has a data table, nothing depends on color alone, and all tools work by keyboard. To report a barrier, contact STELAR. <button type="button" class="theme-btn" id="themeBtn">Switch to dark theme</button></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+
+/* ---------------- Data ---------------- */
+const D = {
+  freq: { a:"2025 (n = 309)", b:"2026 (n = 921)", rows:[
+    {label:"Daily", a:12.3, b:16.5},
+    {label:"Weekly", a:24.3, b:33.8},
+    {label:"Monthly or occasionally", a:23.3, b:12.6},
+    {label:"Less than monthly or rarely", a:17.2, b:16.5},
+    {label:"Never", a:23.0, b:20.6},
+    {group:"Combined"},
+    {label:"Weekly or more", a:36.6, b:50.3, emph:true},
+    {label:"Less often than weekly", a:40.5, b:29.1}
+  ]},
+  work: { a:"2025 (n = 310)", b:"2026 (n = 925)", rows:[
+    {label:"Work on assignments without consulting AI", a:48.1, b:41.4},
+    {label:"Consult AI for ideas, then write on my own", a:48.1, b:49.3},
+    {label:"Write my main ideas, then ask AI for a draft with feedback", a:29.7, b:29.8},
+    {label:"Ask AI for several responses, choose the best parts, edit, submit", a:10.6, b:10.6},
+    {label:"Ask AI for a response, review and edit, submit", a:10.0, b:10.4},
+    {label:"Enter the assignment prompt into AI and submit the response", a:2.3, b:1.4}
+  ]},
+  cheat: { a:"2025 (n = 310)", b:"2026 (n = 925)", rows:[
+    {label:"Relying on AI to write entire assignments", a:94.2, b:91.5},
+    {label:"Submitting AI-generated work without acknowledgment", a:88.4, b:81.4},
+    {label:"Using AI without instructor permission", a:54.2, b:58.6},
+    {label:"Using AI for brainstorming without giving credit", a:23.9, b:23.0},
+    {label:"I do not think using AI is cheating or plagiarism", a:3.5, b:3.2}
+  ]},
+  policy: { a:"2025 (n = 310)", b:"2026 (n = 917)", rows:[
+    {label:"Excellent", a:9.7, b:9.7},
+    {label:"Very good", a:20.3, b:23.8},
+    {label:"Good", a:28.1, b:32.7},
+    {label:"Fair", a:28.7, b:23.7},
+    {label:"Poor", a:13.2, b:10.1},
+    {group:"Combined"},
+    {label:"Excellent or very good", a:30.0, b:33.5},
+    {label:"Good or fair", a:56.8, b:56.4}
+  ]},
+  concern: { a:"2025", b:"2026", rows:[
+    {group:"Their own skills", note:"steady or rising"},
+    {label:"Decline in critical thinking skills", a:87.0, b:87.0},
+    {label:"Decline in writing skills", a:83.1, b:83.8},
+    {label:"Decline in reading skills", a:76.9, b:77.9},
+    {group:"AI's wider effects", note:"rising"},
+    {label:"Job displacement", a:68.2, b:69.9},
+    {label:"Energy and environmental impact", a:57.1, b:68.6, emph:true},
+    {group:"Reliability, ethics, and policy", note:"falling"},
+    {label:"Misinformation in AI content", a:85.8, b:80.6},
+    {label:"Academic dishonesty or cheating", a:79.0, b:74.7},
+    {label:"Data privacy", a:73.4, b:67.2},
+    {label:"Intellectual property infringement", a:67.2, b:64.6},
+    {label:"Bias in AI content", a:64.1, b:60.5},
+    {label:"Lack of institutional policies", a:58.4, b:56.6}
+  ]},
+  /* survey coding 1 = very concerned ... 5 = not concerned; shown as 6 - M */
+  subFreq: { a:"Use AI monthly or more (n = 579)", b:"Use AI rarely or never (n = 342)", rows:[
+    ["Decline in critical thinking skills",1.67,1.24,".195",true],
+    ["Decline in writing skills",1.82,1.29,".231",true],
+    ["Misinformation in AI content",1.98,1.39,".290",true],
+    ["Decline in reading skills",2.04,1.44,".241",true],
+    ["Academic dishonesty or cheating",2.18,1.60,".266",true],
+    ["Job displacement",2.23,1.69,".213",true],
+    ["Energy and environmental impact",2.37,1.61,".283",true],
+    ["Data privacy",2.38,1.59,".323",true],
+    ["Intellectual property infringement",2.48,1.76,".289",true],
+    ["Lack of institutional policies",2.65,2.11,".199",true],
+    ["Bias in AI content",2.72,1.80,".332",true]
+  ]},
+  subGender: { a:"Men (n = 329)", b:"Women (n = 538)", rows:[
+    ["Bias in AI content",2.72,2.18,".177",true],
+    ["Energy and environmental impact",2.40,1.90,".163",true],
+    ["Intellectual property infringement",2.49,2.06,".147",true],
+    ["Decline in reading skills",2.01,1.71,".112",true],
+    ["Job displacement",2.20,1.91,".103",true],
+    ["Data privacy",2.24,2.00,".096",true],
+    ["Lack of institutional policies",2.60,2.34,".095",true],
+    ["Misinformation in AI content",1.91,1.67,".091",true],
+    ["Decline in writing skills",1.75,1.54,".079",false],
+    ["Decline in critical thinking skills",1.62,1.45,".077",false],
+    ["Academic dishonesty or cheating",2.09,1.90,".053",false]
+  ]},
+  college: { cols:["Heavy users","Casual users","Non-users"], rows:[
+    {label:"All undergraduate respondents", n:851, v:[46,45,9]},
+    {label:"Arts and Sciences", n:346, v:[36,48,16]},
+    {label:"Opus College of Business", n:256, v:[63,36,1]},
+    {label:"Morrison Family College of Health", n:124, v:[40,52,8]},
+    {label:"School of Engineering", n:98, v:[51,46,3]},
+    {label:"First- and second-year students", n:470, v:[43,47,10]},
+    {label:"Third- and fourth-year students", n:356, v:[51,42,7]}
+  ]},
+  mostly: [
+    ["Helps me understand steps or explanations",53],
+    ["Gives me ideas or starting points",23],
+    ["Checks or edits my work",15],
+    ["Writes small parts I then rewrite",3],
+    ["Writes most of it for me",1],
+    ["I don't use AI for school",5]
+  ],
+  concernL: { s:["Heavy users","Casual users"], rows:[
+    ["Dependence on AI",73,67],
+    ["Misinformation",51,52],
+    ["Environmental impact",30,48],
+    ["Losing human connection",28,31],
+    ["Academic integrity",25,31],
+    ["Career uncertainty",22,13],
+    ["Artistic integrity or authenticity",16,21],
+    ["Mental or emotional health",6,5]
+  ]},
+  ask: [
+    ["My own reflection",43],
+    ["Friends",43],
+    ["Online sources",41],
+    ["Professors or teachers",27],
+    ["Family",13],
+    ["A mentor, chaplain, or faith leader",4],
+    ["None of these",9]
+  ],
+  want: { s:["AI users","Non-users"], rows:[
+    ["Show how AI is used in my field or future career",37,8],
+    ["Train students to use AI tools effectively",30,13],
+    ["Build skills that complement AI, such as critical thinking",30,21],
+    ["Set clear guidelines on when and how AI can be used",26,22],
+    ["Guidance on ethical use",25,42],
+    ["Teach how to evaluate AI output for accuracy and bias",23,32],
+    ["Access to AI tools for all students",15,4],
+    ["Support faculty to set clear, reasonable expectations",14,15],
+    ["Opportunities to discuss AI's impact on society",14,34],
+    ["Assignments that use AI in a meaningful way",13,4]
+  ]}
+};
+
+const PRED = {
+  "p-weekly": {q:"In 2026, what share of St. Thomas students used generative AI for academic work at least once a week?", actual:50.3, note:"Up from 36.6% in 2025.", link:"#use", linkText:"See the full breakdown"},
+  "p-noai": {q:"In 2026, what share of students said they work on assignments without consulting AI?", actual:41.4, note:"Down from 48.1% in 2025, when it tied with consulting AI for ideas."},
+  "p-paste": {q:"What share of students said they enter the assignment prompt into AI and submit the response it gives them?", actual:1.4, note:"Down from 2.3% in 2025. It was the least common workflow in both years."},
+  "p-ct": {q:"What share of students are concerned or very concerned that AI could weaken critical thinking skills?", actual:87.0, note:"The same as in 2025, and the highest of eleven concerns in both years."},
+  "p-prof": {q:"In the spring 2026 study, what share of student AI users said they turn to professors or teachers when unsure whether or how to use AI?", actual:27, note:"Their own reflection (43%), friends (43%), and online sources (41%) all ranked higher."}
+};
+const ORDER = ["p-weekly","p-noai","p-paste","p-ct","p-prof"];
+const SHORT = {"p-weekly":"Weekly or more AI use, 2026","p-noai":"Work without consulting AI, 2026","p-paste":"Submit AI response to the prompt, 2026","p-ct":"Concerned about critical thinking, 2026","p-prof":"AI users who ask professors, spring 2026"};
+
+const state = { predOn:true, guesses:{}, answered:{}, group:"all" };
+
+/* Saved progress: stays in this browser only */
+const STORE = "ust-students-ai-v1";
+let saved = {};
+try { saved = JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e){ saved = {}; }
+function persist(){ try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e){} }
+
+/* Two-year survey results by group, computed from the cleaned 2025 (n = 310) and 2026 (n = 925) files.
+   Order: freq [daily, weekly, monthly, rarely, never, weekly or more, less than weekly];
+   work and cheat in chart order; policy [excellent..poor, excellent+very good, good+fair];
+   concern [critical thinking, writing, reading, jobs, environment, misinformation, dishonesty, privacy, IP, bias, policies].
+   Values are null where a group had fewer than 20 respondents that year. */
+const G = {"all":{"label":"All students","y25":{"n":310,"fn":309,"pn":310,"cn":[308,309],"freq":[12.3,24.3,23.3,17.2,23.0,36.6,40.5],"work":[48.1,48.1,29.7,10.6,10.0,2.3],"cheat":[94.2,88.4,54.2,23.9,3.5],"policy":[9.7,20.3,28.1,28.7,13.2,30.0,56.8],"concern":[87.0,83.1,76.9,68.2,57.1,85.8,79.0,73.4,67.2,64.1,58.4]},"y26":{"n":925,"fn":921,"pn":917,"cn":[920,925],"freq":[16.5,33.8,12.6,16.5,20.6,50.3,29.1],"work":[41.4,49.3,29.8,10.6,10.4,1.4],"cheat":[91.5,81.4,58.6,23.0,3.2],"policy":[9.7,23.8,32.7,23.7,10.1,33.5,56.4],"concern":[87.0,83.8,77.9,69.9,68.6,80.6,74.7,67.2,64.6,60.5,56.6]}},"women":{"label":"Women","y25":{"n":154,"fn":154,"pn":154,"cn":[154,154],"freq":[10.4,19.5,27.3,18.2,24.7,29.9,45.5],"work":[51.3,41.6,27.3,11.7,7.8,0.6],"cheat":[96.8,90.9,59.1,22.1,1.9],"policy":[9.1,23.4,27.9,28.6,11.0,32.5,56.5],"concern":[90.9,85.1,79.9,76.0,70.1,87.0,82.5,81.2,70.1,67.5,63.0]},"y26":{"n":538,"fn":536,"pn":534,"cn":[533,538],"freq":[16.0,33.0,14.7,17.7,18.5,49.1,32.5],"work":[41.1,50.0,31.4,11.0,10.0,0.7],"cheat":[91.8,83.1,60.0,24.9,3.0],"policy":[10.3,25.1,33.0,22.3,9.4,35.4,55.2],"concern":[88.7,86.8,81.2,73.0,74.0,83.8,75.8,70.3,70.3,66.5,60.0]}},"men":{"label":"Men","y25":{"n":140,"fn":139,"pn":140,"cn":[138,139],"freq":[15.8,30.2,20.1,16.5,17.3,46.0,36.7],"work":[42.1,56.4,34.3,10.7,12.1,4.3],"cheat":[90.7,84.3,45.7,23.6,5.7],"policy":[9.3,17.9,28.6,28.6,15.7,27.1,57.1],"concern":[81.9,79.0,72.5,58.7,38.4,83.5,74.8,62.3,60.9,57.6,52.2]},"y26":{"n":329,"fn":327,"pn":327,"cn":[328,329],"freq":[18.3,37.0,9.5,14.1,21.1,55.4,23.5],"work":[40.4,51.1,28.3,10.3,11.6,2.7],"cheat":[91.8,79.3,56.5,20.1,4.0],"policy":[8.9,23.2,30.9,26.3,10.7,32.1,57.2],"concern":[84.8,79.6,72.3,65.7,59.9,75.0,72.0,61.9,55.0,50.8,51.5]}},"cas":{"label":"College of Arts and Sciences","y25":{"n":99,"fn":99,"pn":99,"cn":[98,98],"freq":[6.1,23.2,18.2,21.2,31.3,29.3,39.4],"work":[52.5,42.4,19.2,4.0,5.1,0.0],"cheat":[96.0,89.9,65.7,27.3,1.0],"policy":[3.0,21.2,29.3,30.3,16.2,24.2,59.6],"concern":[91.8,88.8,80.6,68.4,59.2,88.8,85.7,76.5,67.3,63.3,56.1]},"y26":{"n":224,"fn":222,"pn":224,"cn":[223,224],"freq":[14.4,31.1,11.3,16.2,27.0,45.5,27.5],"work":[48.2,45.5,20.5,8.5,11.6,0.4],"cheat":[93.8,86.6,65.2,30.8,1.8],"policy":[8.0,22.8,33.5,25.9,9.8,30.8,59.4],"concern":[93.3,92.4,84.8,76.3,66.5,87.0,85.3,69.2,68.3,63.8,58.9]}},"opus":{"label":"Opus College of Business","y25":{"n":43,"fn":43,"pn":43,"cn":[42,43],"freq":[27.9,34.9,25.6,11.6,0.0,62.8,37.2],"work":[30.2,72.1,53.5,18.6,25.6,4.7],"cheat":[93.0,81.4,34.9,23.3,2.3],"policy":[2.3,14.0,34.9,37.2,11.6,16.3,72.1],"concern":[83.7,79.1,62.8,55.8,48.8,79.1,76.7,72.1,66.7,58.1,58.1]},"y26":{"n":182,"fn":180,"pn":182,"cn":[181,182],"freq":[32.2,48.3,8.9,6.7,3.9,80.6,15.6],"work":[28.0,69.2,53.8,17.6,18.1,3.3],"cheat":[91.2,74.2,47.8,13.2,6.0],"policy":[12.1,23.6,36.3,23.1,4.9,35.7,59.3],"concern":[83.5,76.9,72.0,56.9,56.6,71.4,62.6,54.1,53.3,44.0,50.0]}},"mfcoh":{"label":"Morrison Family College of Health","y25":{"n":37,"fn":37,"pn":37,"cn":[37,37],"freq":[8.1,21.6,27.0,10.8,32.4,29.7,37.8],"work":[56.8,37.8,32.4,10.8,10.8,2.7],"cheat":[94.6,94.6,62.2,27.0,5.4],"policy":[8.1,27.0,27.0,24.3,13.5,35.1,51.4],"concern":[94.6,78.4,78.4,86.5,70.3,81.1,78.4,75.7,64.9,62.2,67.6]},"y26":{"n":144,"fn":144,"pn":144,"cn":[142,144],"freq":[7.6,26.4,11.1,26.4,28.5,34.0,37.5],"work":[45.8,41.0,22.2,6.9,5.6,0.7],"cheat":[91.7,79.2,61.8,25.7,3.5],"policy":[10.4,23.6,29.9,22.9,13.2,34.0,52.8],"concern":[87.5,84.7,77.1,81.0,82.6,89.5,73.6,72.5,74.3,72.2,59.7]}},"eng":{"label":"School of Engineering","y25":{"n":59,"fn":58,"pn":59,"cn":[58,59],"freq":[17.2,29.3,25.9,13.8,13.8,46.6,39.7],"work":[40.7,57.6,33.9,15.3,13.6,6.8],"cheat":[91.5,91.5,45.8,22.0,10.2],"policy":[10.2,18.6,30.5,25.4,15.3,28.8,55.9],"concern":[75.9,77.6,72.4,58.6,51.7,86.4,71.2,65.5,62.7,61.0,44.8]},"y26":{"n":119,"fn":119,"pn":117,"cn":[118,119],"freq":[23.5,50.4,7.6,8.4,10.1,73.9,16.0],"work":[36.1,58.0,42.0,16.8,10.9,2.5],"cheat":[88.2,76.5,51.3,16.0,5.0],"policy":[18.8,29.1,29.9,13.7,8.5,47.9,43.6],"concern":[80.7,72.3,64.7,63.0,65.5,72.0,70.3,67.2,58.8,50.4,49.2]}},"educ":{"label":"School of Education","y25":{"n":39,"fn":39,"pn":39,"cn":[39,39],"freq":[5.1,15.4,25.6,28.2,25.6,20.5,53.8],"work":[53.8,38.5,25.6,17.9,2.6,0.0],"cheat":[92.3,82.1,53.8,15.4,2.6],"policy":[25.6,20.5,20.5,28.2,5.1,46.2,48.7],"concern":[82.1,84.6,79.5,66.7,59.0,89.7,76.9,79.5,74.4,79.5,74.4]},"y26":{"n":123,"fn":123,"pn":120,"cn":[122,123],"freq":[9.8,22.8,21.1,20.3,26.0,32.5,41.5],"work":[39.0,42.3,23.6,6.5,7.3,0.8],"cheat":[88.6,82.9,56.9,25.2,2.4],"policy":[5.8,23.3,35.8,24.2,10.8,29.2,60.0],"concern":[83.7,84.6,78.0,69.1,75.6,80.3,72.4,73.2,69.1,72.1,61.8]}},"law":{"label":"School of Law","y25":{"n":9,"fn":9,"pn":9,"cn":[9,9],"freq":null,"work":null,"cheat":null,"policy":null,"concern":null},"y26":{"n":73,"fn":73,"pn":72,"cn":[71,73],"freq":[9.6,15.1,16.4,28.8,30.1,24.7,45.2],"work":[53.4,28.8,13.7,6.8,5.5,0.0],"cheat":[94.5,89.0,72.6,27.4,1.4],"policy":[4.2,22.2,27.8,31.9,13.9,26.4,59.7],"concern":[91.8,93.2,90.4,77.5,80.8,83.6,83.6,74.0,65.8,65.8,60.3]}},"sps":{"label":"Saint Paul Seminary","y25":{"n":10,"fn":10,"pn":10,"cn":[10,10],"freq":null,"work":null,"cheat":null,"policy":null,"concern":null},"y26":{"n":21,"fn":21,"pn":21,"cn":[21,21],"freq":[4.8,33.3,9.5,9.5,42.9,38.1,19.0],"work":[57.1,38.1,4.8,4.8,9.5,0.0],"cheat":[95.2,95.2,81.0,23.8,0.0],"policy":[0.0,4.8,28.6,33.3,33.3,4.8,61.9],"concern":[95.2,85.7,90.5,61.9,47.6,66.7,76.2,47.6,61.9,42.9,47.6]}}};
+
+/* ---------------- Helpers ---------------- */
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const f1 = n => (Math.round(n*10)/10).toFixed(1);
+const fmtPct = n => (Number.isInteger(n) ? n : f1(n)) + "%";
+function chgText(a,b){ const d = Math.round((b-a)*10)/10; if (d===0) return "0.0"; return (d>0?"+":"\u2212") + Math.abs(d).toFixed(1); }
+function chgWords(a,b,unit){ const d = Math.round((b-a)*10)/10; if (d===0) return "no change"; return (d>0?"up ":"down ") + Math.abs(d).toFixed(1) + (unit||" points"); }
+
+/* ---------------- Dumbbell chart ---------------- */
+function dumbbell(fig, cfg){
+  const el = $(".chart", fig);
+  const [lo, hi] = cfg.domain || [0,100];
+  const ticks = cfg.ticks || [0,25,50,75,100];
+  const pos = v => ((v - lo) / (hi - lo)) * 100;
+  const fv = cfg.fmt || (v => f1(v) + "%");
+  const fa = cfg.fmtA || (v => f1(v));
+  const extraHead = cfg.extraHead || "Change";
+  let h = `<div class="legend" aria-hidden="true"><span><i class="k k-a"></i>${esc(cfg.a)}</span><span><i class="k k-b"></i>${esc(cfg.b)}</span></div>`;
+  h += `<div class="db" role="list" aria-label="${esc(cfg.aria)}">`;
+  h += `<div class="db-axis" aria-hidden="true"><div class="db-label"></div><div class="db-track"><div class="db-scale">${ticks.map(t=>`<span class="tick-label" style="left:${pos(t)}%">${cfg.tickFmt?cfg.tickFmt(t):t+"%"}</span>`).join("")}</div></div><div class="db-vals"><span>${esc(cfg.headA||"")}</span><span>${esc(cfg.headB||"")}</span><span class="chg">${esc(extraHead)}</span></div></div>`;
+  cfg.rows.forEach(r => {
+    if (r.group){ h += `<div class="db-group" role="listitem">${esc(r.group)}${r.note?` <span>(${esc(r.note)})</span>`:""}</div>`; return; }
+    const hasA = r.a != null, hasB = r.b != null;
+    const pa = hasA ? pos(r.a) : null, pb = hasB ? pos(r.b) : null;
+    const both = hasA && hasB, left = both ? Math.min(pa,pb) : 0, w = both ? Math.abs(pb-pa) : 0;
+    const extra = r.extra != null ? r.extra : (both ? chgText(r.a, r.b) : "n/a");
+    const sr = cfg.srRow ? cfg.srRow(r) : `${r.label}: ${cfg.a} ${hasA?fv(r.a):"not shown"}, ${cfg.b} ${hasB?fv(r.b):"not shown"}${both?", "+chgWords(r.a,r.b):""}.`;
+    h += `<div class="db-row" role="listitem"><span class="sr-only">${esc(sr)}</span>
+      <div class="db-label" aria-hidden="true">${r.emph?"<b>":""}${esc(r.label)}${r.emph?"</b>":""}</div>
+      <div class="db-track" aria-hidden="true"><div class="db-scale">
+        ${ticks.map(t=>`<span class="tick" style="left:${pos(t)}%"></span>`).join("")}
+        ${both?`<span class="db-line" style="left:${left}%;width:${w}%"></span>`:""}
+        ${hasA?`<span class="dot dot-a" style="left:${pa}%"></span>`:""}
+        ${hasB?`<span class="dot dot-b" style="left:${pb}%"></span>`:""}
+      </div></div>
+      <div class="db-vals" aria-hidden="true"><span class="va">${hasA?fa(r.a):"n/a"}</span><span class="vb${hasB?"":" vb-missing"}">${hasB?fv(r.b):"n/a"}</span><span class="chg${r.emph?" big":""}">${esc(extra)}</span></div>
+    </div>`;
+  });
+  h += `</div>`;
+  // table
+  const rows = cfg.rows.filter(r=>!r.group);
+  h += `<details class="data"><summary>Show the numbers as a table</summary><table><caption>${esc(cfg.aria)}</caption><thead><tr><th scope="col">Item</th><th scope="col">${esc(cfg.a)}</th><th scope="col">${esc(cfg.b)}</th><th scope="col">${esc(extraHead)}</th></tr></thead><tbody>${rows.map(r=>`<tr><th scope="row">${esc(r.label)}</th><td>${r.a!=null?fv(r.a):"n/a"}</td><td>${r.b!=null?fv(r.b):"n/a"}</td><td>${esc(r.extra!=null?r.extra:(r.a!=null&&r.b!=null?chgText(r.a,r.b):"n/a"))}</td></tr>`).join("")}</tbody></table><button type="button" class="btn btn-quiet btn-small csv-btn">Download as CSV</button></details>`;
+  el.innerHTML = h;
+}
+
+/* ---------------- Bar chart ---------------- */
+function bars(fig, cfg){
+  const el = $(".chart", fig);
+  const max = cfg.max || 100;
+  const series = cfg.series || null;
+  let h = "";
+  if (series){ h += `<div class="legend" aria-hidden="true">${series.map((s,i)=>`<span><i class="k-sq k-s${i+1}"></i>${esc(s)}</span>`).join("")}</div>`; }
+  h += `<div class="bars" role="list" aria-label="${esc(cfg.aria)}">`;
+  cfg.rows.forEach(r => {
+    const label = r[0], vals = r.slice(1);
+    const sr = series ? `${label}: ${vals.map((v,i)=>`${series[i]} ${v}%`).join(", ")}.` : `${label}: ${vals[0]}%.`;
+    const hl = cfg.highlight && cfg.highlight === label;
+    h += `<div class="bar-row" role="listitem"><span class="sr-only">${esc(sr)}</span>
+      <div class="bar-label" aria-hidden="true">${hl?"<b>":""}${esc(label)}${hl?"</b>":""}</div>
+      <div class="bar-track" aria-hidden="true">${vals.map((v,i)=>`<div class="bar${series?" thin":""}${i?" s"+(i+1):""}" style="width:${(v/max)*100}%"></div>`).join("")}</div>
+      <div class="bar-val" aria-hidden="true">${vals.map((v,i)=>`<span class="${i?"s2v":""}">${v}%</span>`).join("")}</div>
+    </div>`;
+  });
+  h += `</div>`;
+  const heads = series ? series : ["Share"];
+  h += `<details class="data"><summary>Show the numbers as a table</summary><table><caption>${esc(cfg.aria)}</caption><thead><tr><th scope="col">Item</th>${heads.map(s=>`<th scope="col">${esc(s)}</th>`).join("")}</tr></thead><tbody>${cfg.rows.map(r=>`<tr><th scope="row">${esc(r[0])}</th>${r.slice(1).map(v=>`<td>${v}%</td>`).join("")}</tr>`).join("")}</tbody></table><button type="button" class="btn btn-quiet btn-small csv-btn">Download as CSV</button></details>`;
+  el.innerHTML = h;
+}
+
+/* ---------------- Matrix table ---------------- */
+function matrix(fig, cfg){
+  const el = $(".chart", fig);
+  let h = `<table class="matrix"><caption class="sr-only">AI use intensity by school or college and class year, spring 2026 study. Percent of respondents in each group.</caption><thead><tr><th scope="col">Group</th>${cfg.cols.map(c=>`<th scope="col">${esc(c)}</th>`).join("")}</tr></thead><tbody>`;
+  cfg.rows.forEach((r,ri) => {
+    h += `<tr${ri===0||ri===5?' style="border-top:2px solid var(--rule)"':''}><th scope="row">${esc(r.label)} <span class="n">(n = ${r.n})</span></th>${r.v.map((v,i)=>`<td><span class="cell"><span class="mb${i?" c"+(i+1):""}" style="width:${v*1.1}px" aria-hidden="true"></span>${v}%</span></td>`).join("")}</tr>`;
+  });
+  h += `</tbody></table>`;
+  el.innerHTML = h;
+}
+
+/* ---------------- Render charts ---------------- */
+/* Two-year charts, filtered by group */
+const TWO = [
+  {fig:"#fig-freq", key:"freq", nk:"fn", base:D.freq.rows, aria:"Frequency of AI use for academic work", sub:"Share of respondents. Change in percentage points."},
+  {fig:"#fig-work", key:"work", nk:"n", base:D.work.rows, aria:"How students use AI in coursework", sub:"Select all that apply, so shares do not sum to 100%."},
+  {fig:"#fig-cheat", key:"cheat", nk:"n", base:D.cheat.rows, aria:"Circumstances students consider cheating", sub:"Select all that apply."},
+  {fig:"#fig-policy", key:"policy", nk:"pn", base:D.policy.rows, aria:"Self-rated understanding of AI academic integrity policies", sub:"Share of respondents."},
+  {fig:"#fig-concern", key:"concern", nk:"cn", base:D.concern.rows, aria:"Share concerned or very concerned about each issue", sub:"Share of respondents.", concern:true}
+];
+function nText(v){ return Array.isArray(v) ? (v[0]===v[1] ? `${v[0]}` : `${v[0]} to ${v[1]}`) : `${v}`; }
+function renderTwoYear(){
+  const g = G[state.group];
+  TWO.forEach(t => {
+    const A = g.y25[t.key], B = g.y26[t.key];
+    let i = 0;
+    const rows = t.base.map(r => { if (r.group) return r; const o = Object.assign({}, r, {a: A ? A[i] : null, b: B ? B[i] : null}); i++; return o; });
+    const la = A ? `2025 (n = ${nText(g.y25[t.nk])})` : "2025 (fewer than 20, not shown)";
+    const lb = B ? `2026 (n = ${nText(g.y26[t.nk])})` : "2026 (fewer than 20, not shown)";
+    const fig = $(t.fig);
+    let cfg = {a:la, b:lb, rows, aria:`${t.aria}, ${g.label.toLowerCase()==="all students"?"all students":g.label}, 2025 and 2026`};
+    let sub = t.sub;
+    if (t.concern){
+      const vals = rows.filter(r=>!r.group).flatMap(r=>[r.a,r.b]).filter(v=>v!=null);
+      const lo = Math.min(50, Math.floor(Math.min(...vals)/10)*10);
+      const ticks = []; for (let v=lo; v<=100; v+=10) ticks.push(v);
+      cfg.domain = [lo,100]; cfg.ticks = ticks;
+      sub += ` Axis starts at ${lo}%.`;
+    }
+    $(".fig-sub", fig).textContent = sub;
+    const flag = $(".group-flag", fig);
+    if (state.group === "all"){ flag.hidden = true; }
+    else { flag.hidden = false; flag.textContent = `Showing ${g.label}. The text above describes all students.${!A ? " The 2025 group was too small to report." : ""}`; }
+    dumbbell(fig, cfg);
+  });
+}
+function setGroup(v){
+  state.group = v;
+  $$("[data-group-select]").forEach(s => { if (s.value !== v) s.value = v; });
+  renderTwoYear();
+  saved.group = v; persist();
+}
+function initGroupUI(){
+  const opts = `<option value="all">All students</option><optgroup label="Gender"><option value="women">Women</option><option value="men">Men</option></optgroup><optgroup label="School or college">${["cas","opus","mfcoh","eng","educ","law","sps"].map(k=>`<option value="${k}">${esc(G[k].label)}${G[k].y25.freq?"":" (2026 only)"}</option>`).join("")}</optgroup>`;
+  TWO.forEach((t, i) => {
+    const cap = $("figcaption", $(t.fig));
+    const d = document.createElement("div"); d.className = "fig-group";
+    d.innerHTML = `<label for="gs-${i}">Group</label><select id="gs-${i}" data-group-select></select>`;
+    cap.appendChild(d);
+    const flag = document.createElement("p"); flag.className = "group-flag"; flag.hidden = true; flag.setAttribute("role","status");
+    cap.appendChild(flag);
+  });
+  $$("[data-group-select]").forEach(s => { s.innerHTML = opts; s.value = state.group; s.addEventListener("change", () => setGroup(s.value)); });
+}
+
+function renderCharts(){
+  renderTwoYear();
+  renderSub("freq");
+  matrix($("#fig-college"), D.college);
+  bars($("#fig-mostly"), {rows:D.mostly, aria:"What AI mostly does when students use it for school", max:100});
+  bars($("#fig-concern-l"), {rows:D.concernL.rows, series:D.concernL.s, aria:"Top concerns about AI, heavy and casual users", max:100});
+  bars($("#fig-ask"), {rows:D.ask, aria:"Who students turn to with questions about AI use", max:100, highlight:"Professors or teachers"});
+  bars($("#fig-want"), {rows:D.want.rows, series:D.want.s, aria:"What students want from St. Thomas related to AI, AI users and non-users", max:100});
+}
+
+function renderSub(which){
+  const src = which === "freq" ? D.subFreq : D.subGender;
+  const rows = src.rows.map(r => ({label:r[0], a:+(6-r[1]).toFixed(2), b:+(6-r[2]).toFixed(2), extra:r[3]+(r[4]?"":"*")}));
+  $("#sub-title").textContent = which === "freq" ? "Average concern, frequent and infrequent users" : "Average concern, women and men";
+  $("#sub-sub").textContent = "Scale of 1 (not concerned) to 5 (very concerned). Axis starts at 3. Last column is effect size r.";
+  $("#sub-note").textContent = which === "freq"
+    ? "Students who use AI rarely or never were more concerned on all eleven items; every difference was significant after Bonferroni correction. Effects were small to medium; the largest gaps were bias (r = .33), data privacy (.32), misinformation (.29), and intellectual property (.29)."
+    : "Women reported more concern than men on ten of eleven items at p < .05, and on eight after Bonferroni correction (items marked * did not meet the corrected threshold). All effects were small. Academic dishonesty showed no significant difference.";
+  dumbbell($("#fig-sub"), {a:src.a, b:src.b, rows, domain:[3,5], ticks:[3,3.5,4,4.5,5], tickFmt:t=>t.toFixed(1), fmt:v=>v.toFixed(2), fmtA:v=>v.toFixed(2), extraHead:"r",
+    aria: which==="freq" ? "Average concern by frequency of AI use, 2026" : "Average concern by gender, 2026",
+    srRow: r => `${r.label}: ${src.a} ${r.a.toFixed(2)}, ${src.b} ${r.b.toFixed(2)}, effect size r ${r.extra.replace("*"," (not significant after correction)")}.`});
+  $("#panel-sub").setAttribute("aria-labelledby", which==="freq" ? "tab-freq" : "tab-gender");
+}
+
+/* ---------------- Tabs ---------------- */
+function tabs(list, onSelect){
+  const tabsEls = $$('[role="tab"]', list);
+  function select(t, focus){
+    tabsEls.forEach(x => { const on = x===t; x.setAttribute("aria-selected", on); x.tabIndex = on?0:-1; });
+    onSelect(t);
+    if (focus) t.focus();
+  }
+  tabsEls.forEach((t,i) => {
+    t.addEventListener("click", () => select(t));
+    t.addEventListener("keydown", e => {
+      let j = null;
+      if (e.key==="ArrowRight") j = (i+1)%tabsEls.length;
+      if (e.key==="ArrowLeft") j = (i-1+tabsEls.length)%tabsEls.length;
+      if (e.key==="Home") j = 0;
+      if (e.key==="End") j = tabsEls.length-1;
+      if (j!==null){ e.preventDefault(); select(tabsEls[j], true); }
+    });
+  });
+}
+
+/* ---------------- Predictions ---------------- */
+function renderPredict(el){
+  const id = el.dataset.pred, p = PRED[id];
+  el.id = el.id || ("box-"+id);
+  el.innerHTML = `
+    <form class="pred-form" novalidate>
+      <p class="pred-label" id="${id}-q">${esc(p.q)}</p>
+      <div class="pred-input">
+        <input type="range" min="0" max="100" step="1" value="50" id="${id}-range" aria-labelledby="${id}-q" aria-describedby="${id}-hint" aria-valuetext="50 percent">
+        <output for="${id}-range" id="${id}-out" aria-hidden="true">50%</output>
+      </div>
+      <p class="pred-hint" id="${id}-hint">Drag the slider or use the arrow keys. Your guess stays in your browser.</p>
+      <div class="pred-actions">
+        <button type="submit" class="btn btn-primary">Lock in my guess</button>
+        <button type="button" class="btn btn-quiet" data-skip>Skip and show the answer</button>
+      </div>
+    </form>
+    <div class="pred-result" aria-live="polite"></div>`;
+  const range = $("input", el), out = $("output", el);
+  range.addEventListener("input", () => { out.textContent = range.value + "%"; range.setAttribute("aria-valuetext", range.value + " percent"); });
+  $("form", el).addEventListener("submit", e => { e.preventDefault(); answer(id, +range.value); });
+  $("[data-skip]", el).addEventListener("click", () => answer(id, null));
+}
+
+function answer(id, guess){
+  state.answered[id] = true;
+  if (guess !== null) state.guesses[id] = guess;
+  $$(`.predict[data-pred="${id}"]`).forEach(el => showResult(el, id, guess));
+  $$(`[data-reveal-for="${id}"]`).forEach(r => r.hidden = false);
+  $$(`[data-lock-for="${id}"]`).forEach(r => r.hidden = true);
+  saved.answered = state.answered; saved.guesses = state.guesses; persist();
+  renderSummary();
+  updateProgress();
+}
+
+function showResult(el, id, guess){
+  const p = PRED[id];
+  $("form", el).hidden = true;
+  const res = $(".pred-result", el);
+  const actual = fmtPct(p.actual);
+  let h = "";
+  if (guess !== null){
+    const d = Math.round((p.actual - guess)*10)/10;
+    const rel = d === 0 ? "exactly right" : `${Math.abs(d).toFixed(1)} points ${d>0?"higher than":"lower than"} your guess`;
+    h += `<p class="pred-label" style="margin-bottom:.2rem">${esc(p.q)}</p>`;
+    h += `<p class="pred-big">The answer is <b>${actual}</b>, ${rel}.</p>`;
+    h += `<div class="cmp" aria-hidden="true"><span>Your guess</span><span class="b g" style="width:${Math.max(guess,0.8)}%"></span><span class="v">${guess}%</span><span>Actual</span><span class="b a" style="width:${Math.max(p.actual,0.8)}%"></span><span class="v">${actual}</span></div>`;
+  } else {
+    h += `<p class="pred-label" style="margin-bottom:.2rem">${esc(p.q)}</p><p class="pred-big">The answer is <b>${actual}</b>.</p>`;
+  }
+  h += `<p class="src">${esc(p.note)}</p>`;
+  if (p.link) h += `<p><a href="${p.link}">${esc(p.linkText)}</a></p>`;
+  res.innerHTML = h;
+}
+
+function renderSummary(){
+  const box = $("#pred-summary");
+  const done = ORDER.filter(id => state.guesses[id] !== undefined);
+  if (!state.predOn && !done.length){ box.innerHTML = `<p class="prose src">Predictions are turned off. Turn on <b>Predict first</b> at the top of the page to test your assumptions as you read.</p>`; return; }
+  if (!done.length){ box.innerHTML = `<p class="prose">Make predictions as you read, and your results will collect here. ${ORDER.length} predictions appear across the page.</p>`; return; }
+  const gaps = done.map(id => Math.abs(PRED[id].actual - state.guesses[id]));
+  const avg = gaps.reduce((s,x)=>s+x,0)/gaps.length;
+  let worst = done[gaps.indexOf(Math.max(...gaps))];
+  let h = `<div class="table-scroll"><table class="sum-table"><caption class="sr-only">Your predictions compared with the data</caption><thead><tr><th scope="col">Question</th><th scope="col">Your guess</th><th scope="col">Actual</th><th scope="col">Difference</th></tr></thead><tbody>`;
+  done.forEach(id => { const g = state.guesses[id], a = PRED[id].actual, d = Math.round((a-g)*10)/10; h += `<tr><th scope="row">${esc(SHORT[id])}</th><td>${g}%</td><td>${fmtPct(a)}</td><td>${d===0?"0.0":(d>0?"+":"\u2212")+Math.abs(d).toFixed(1)}</td></tr>`; });
+  h += `</tbody></table></div>`;
+  h += `<p class="prose" style="margin-top:1rem">Across ${done.length} prediction${done.length>1?"s":""}, your guesses were off by an average of <b>${avg.toFixed(1)} points</b>. Your largest gap was on <b>${esc(SHORT[worst].toLowerCase())}</b>.</p>`;
+  h += `<p class="prose src">Where a guess missed most, ask what shaped the expectation: your own classes, news coverage, or conversations with colleagues. That question works well to open a department or learning community discussion (see the <a href="#guides">discussion guides</a>).</p>`;
+  box.innerHTML = h;
+}
+
+function setPredMode(on){
+  state.predOn = on;
+  const btn = $("#predToggle");
+  btn.setAttribute("aria-pressed", on);
+  $$(".predict").forEach(el => {
+    const id = el.dataset.pred;
+    if (!on && !state.answered[id]) { el.hidden = true; }
+    else el.hidden = false;
+  });
+  // hero card text
+  $$("[data-reveal-for]").forEach(r => { const id = r.dataset.revealFor; r.hidden = on && !state.answered[id]; });
+  $$("[data-lock-for]").forEach(r => { const id = r.dataset.lockFor; r.hidden = !(on && !state.answered[id]); });
+  const heroCard = $(".hero-card");
+  if (heroCard) heroCard.hidden = !on && !state.answered["p-weekly"];
+  saved.predOn = on; persist();
+  renderSummary();
+  updateProgress();
+}
+
+/* ---------------- Planner ---------------- */
+const LV = {
+  1:{name:"No AI", short:"Students complete the work without AI tools.",
+     rule:"Do not use AI tools for any part of this assignment.",
+     criteria:"Grading focuses on your own reasoning, accuracy, and explanation.",
+     why:["About one in five St. Thomas students never uses AI for academic work, and 41.4% complete assignments without consulting it, so this matches what many students already do.",
+          "Students ranked clear guidelines on acceptable use as their top support, and asked to hear the reason behind a limit (Jensen, 2026)."],
+     hold:["Complete the work in class, in a lab, or under supervision. A rule alone does not secure work done on students' own time (Corbin et al., 2025).",
+           "Add a short oral or whiteboard explanation of one part of the work.",
+           "Tell students what skill the limit protects and when they will use it."]},
+  2:{name:"AI to learn, not to produce", short:"Students may use AI to understand concepts, quiz themselves, or find a starting point. Nothing AI generates appears in the submitted work.",
+     rule:"You may use AI to explain concepts, quiz you, or suggest where to start. Do not include AI-generated text, code, images, or solutions in what you submit.",
+     criteria:"Grading focuses on your own work and on how clearly you explain it in your own words.",
+     why:["49.3% of students already consult AI for ideas before writing on their own, and 53% of AI users in the spring 2026 study say AI mostly helps them understand steps or explanations.",
+          "AI that gave hints and questions rather than answers avoided the learning loss seen with unrestricted access (Bastani et al., 2025)."],
+     hold:["Provide a study prompt that asks AI for hints and questions instead of answers.",
+           "Follow the work with a brief in-class check where students explain a key idea without notes.",
+           "Name the line clearly: using AI to understand is fine; submitting what it produces is not."]},
+  3:{name:"AI feedback on your own draft", short:"Students write a complete first draft themselves, then may ask AI for critique and decide what to change.",
+     rule:"Write your complete first draft without AI. You may then ask an AI tool for feedback. You decide which suggestions to use, and all revisions must be your own writing.",
+     criteria:"Grading weighs the quality of your final version and the reasoning in your revision note.",
+     why:["29.8% of students already write their main ideas first and then ask AI for feedback.",
+          "One study found ChatGPT raised essay scores without raising knowledge gain or transfer (Fan et al., 2025). A graded revision note keeps the judgment, and the learning, with the student."],
+     hold:["Collect the first draft before AI feedback, or ask for version history.",
+           "Grade a short revision note: which feedback the student used, which they rejected, and why.",
+           "Provide a common feedback prompt so every student gets comparable help."]},
+  4:{name:"AI as a disclosed collaborator", short:"AI may generate parts of the work. Students direct it, verify it, revise it, and document how they used it.",
+     rule:"You may use AI to generate parts of this work. Check every claim, source, and calculation, revise what AI produces, and document how you used it.",
+     criteria:"Grading emphasizes accuracy you verified, your decisions about AI output, and your own analysis.",
+     why:["About 10% of students already generate, select, and edit AI responses, while only 1.4% submit AI output unedited.",
+          "Only 21% of AI users in the spring 2026 study always double-check AI answers, and heavy users do so less often (14%), so verification needs to be taught and graded."],
+     hold:["Require a short AI-use log: what the student asked, what they kept, and what they changed.",
+           "Weight the criteria toward verification and judgment rather than polish.",
+           "Check a sample of citations together in class; invented sources are a known failure."]},
+  5:{name:"AI as the subject of study", short:"Students test, compare, and critique AI output against course knowledge and expert sources.",
+     rule:"You will use AI output as directed and evaluate it against course readings and other reliable sources.",
+     criteria:"Grading focuses on the accuracy and depth of your evaluation and the evidence you use.",
+     why:["Misinformation (80.6%) and bias (60.5%) are among students' leading concerns, and frequent users report less concern about bias and privacy than infrequent users.",
+          "Non-users in the spring 2026 study asked most for ethics guidance (42%) and discussion of AI's effects on society (34%)."],
+     hold:["Provide a shared AI output so every student analyzes the same material, including students without an AI account.",
+           "Ask students to compare the output with an expert source and document errors, gaps, or bias.",
+           "Close with a short reflection on when students would trust this tool in your field."]}
+};
+const PURPOSE_TXT = {
+  foundation:"This assignment builds a skill you will need to use on your own in later work. Doing it yourself is how the skill develops.",
+  verify:"This assignment shows what you can do on your own, so that my feedback is accurate and your grade reflects your own ability.",
+  process:"This assignment develops your thinking over several steps. The steps matter as much as the final product.",
+  professional:"This assignment asks you to produce work the way people in this field now do, including judging when and how to use AI tools.",
+  critique:"This assignment asks you to examine what AI tools do well and poorly in this subject, so you can judge their output with evidence."
+};
+
+function planner(e){
+  if (e) e.preventDefault();
+  const f = $("#planner-form");
+  const v = n => (f.querySelector(`input[name="${n}"]:checked`)||{}).value;
+  const purpose = v("purpose"), unaided = v("unaided"), observe = v("observe"), current = +(v("current")||0);
+  let L, alt;
+  if (purpose==="verify"){ L=1; alt=2; }
+  else if (purpose==="foundation"){ L=2; alt = unaided==="yes" ? 1 : 3; }
+  else if (purpose==="process"){ L = unaided==="yes" ? 2 : 3; alt = unaided==="yes" ? 3 : 2; }
+  else if (purpose==="professional"){ L = unaided==="yes" ? 3 : 4; alt = unaided==="yes" ? 4 : 3; }
+  else { L=5; alt=4; }
+  const notes = [];
+  if (current===0) notes.push("The assignment does not state an AI expectation yet. Students ranked clearer guidelines on acceptable use as their top support, so naming a level is the most useful single change.");
+  else if (current===L) notes.push("Your current rule matches the suggestion.");
+  else if (current===alt) notes.push(`Your current rule (level ${current}) is the suggested alternative, so it is a reasonable choice.`);
+  else if (current<L) notes.push(`Your current rule (level ${current}, ${LV[current].name}) allows less AI than the suggestion. That can be the right call. Check that it protects a step where the learning happens, and that students can see why.`);
+  else notes.push(`Your current rule (level ${current}, ${LV[current].name}) allows more AI than the suggestion. Check whether students could hand off the step that builds the skill this assignment is for.`);
+  if (L===1 && observe==="none"){ notes.push("This work happens entirely outside class, so a No AI rule cannot be confirmed. Consider moving one part into class, adding a short conversation about the work, or using level 2 with an in-class check (Corbin et al., 2025)."); }
+  if (unaided==="yes" && L>=4){ notes.push("Students will need this skill without AI later. Pair this assignment with a separate No AI check of the core skill, so one task builds judgment with AI and another confirms the underlying ability (University of Sydney, 2024)."); }
+  const hold = LV[L].hold.slice();
+  if (observe==="class" && L>=2) hold.push("Since students work in class, use that time for the step you most want them to do without AI.");
+  if (observe==="some") hold.push("Use your checkpoints for the step where the learning happens, such as the first draft or the problem setup.");
+  if (observe==="none" && L>=2) hold.push("Ask for process evidence with the submission, such as notes, drafts, or a brief account of decisions.");
+
+  const steps = {
+    1:"1. [Your steps here.]\n2. Complete the work without AI tools.",
+    2:"1. Use AI, if you wish, to understand the concepts or find a starting point.\n2. Complete the work yourself.\n3. Be ready to explain a key idea in your own words in class.",
+    3:"1. Write your complete first draft without AI.\n2. Ask an AI tool for feedback, using the prompt provided.\n3. Revise in your own words.\n4. Submit your draft, your revision, and a short note on which feedback you used and why.",
+    4:"1. Plan your approach.\n2. Use AI for the parts you choose.\n3. Verify every claim, source, and calculation.\n4. Revise and add your own analysis.\n5. Submit your work with an AI-use log.",
+    5:"1. Generate or review the AI output provided.\n2. Compare it with course readings or expert sources.\n3. Document what it gets right, what it gets wrong, and why.\n4. Submit your evaluation."
+  }[L];
+  const disclosure = L>=3 ? "\n\nAcknowledging AI use: describe the tool you used and how you used it." : (L===2 ? "\n\nIf you used AI to study for this assignment, add one sentence saying how." : "");
+  const text = `Purpose\n${PURPOSE_TXT[purpose]}\n\nAI use for this assignment (${LV[L].name})\n${LV[L].rule}\n\nTask\n${steps}\n\nCriteria\n${LV[L].criteria}${disclosure}\n\nQuestions about what is allowed are welcome. Ask me before you submit.`;
+
+  const scale = [1,2,3,4,5].map(i=>`<span class="${i===L?"on":(i===alt?"alt":"")}"></span>`).join("");
+  const out = $("#planner-out");
+  out.innerHTML = `
+    <h3>Suggested level ${L}: ${esc(LV[L].name)}</h3>
+    <div class="level-scale" aria-hidden="true">${scale}</div>
+    <p>${esc(LV[L].short)}</p>
+    <p class="src">Also reasonable: level ${alt}, ${esc(LV[alt].name)}.</p>
+    ${notes.map(n=>`<p class="notice">${esc(n)}</p>`).join("")}
+    <h4>Why, from the evidence</h4>
+    <ul>${LV[L].why.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>
+    <h4>Design moves that make it work</h4>
+    <ul>${hold.map(w=>`<li>${esc(w)}</li>`).join("")}</ul>
+    <h4 id="dir-h">Directions for students</h4>
+    <p class="src">Structured as purpose, task, and criteria (Winkelmes et al., 2016). Edit before you use it.</p>
+    <label for="dir-text" class="sr-only">Directions for students, editable</label>
+    <textarea id="dir-text" rows="14">${esc(text)}</textarea>
+    <div class="copy-row"><button type="button" class="btn btn-primary btn-small" id="dir-copy">Copy directions</button><span class="copied" id="dir-copied" role="status"></span></div>`;
+  $("#dir-copy").addEventListener("click", () => copyText($("#dir-text").value, $("#dir-copied")));
+  if (e){
+    saved.planner = {purpose, unaided, observe, current, done:true};
+    persist();
+    out.focus({preventScroll:false});
+  }
+}
+
+/* ---------------- Syllabus builder ---------------- */
+const USE_TXT = {explain:"ask for explanations of concepts or readings", ideas:"brainstorm or find a starting point", quiz:"quiz yourself while studying", feedback:"get feedback on a draft you wrote yourself", edit:"check grammar and spelling", code:"debug or explain code", generate:"generate parts of an assignment, when the assignment allows it and you acknowledge it"};
+function buildStatement(){
+  const f = $("#builder-form");
+  const course = $("#b-course").value.trim();
+  const stance = (f.querySelector('input[name="b-stance"]:checked')||{}).value;
+  const goalRaw = $("#b-goal").value.trim().replace(/\.$/,"");
+  const goal = goalRaw || "[describe the main learning goal]";
+  const uses = $$('input[name="b-use"]:checked', f).map(x=>x.value);
+  const disc = (f.querySelector('input[name="b-disc"]:checked')||{}).value;
+  const inc = new Set($$('input[name="b-inc"]:checked', f).map(x=>x.value));
+  const lines = [];
+  lines.push(`Generative AI in ${course || "this course"}`);
+  lines.push("");
+  if (stance==="limited") lines.push(`In this course you will learn to ${goal}. Most graded work is completed without generative AI tools, because working through this yourself is how that ability develops, and I want your grades to reflect what you can do.`);
+  else if (stance==="integrated") lines.push(`In this course you will learn to ${goal}. Generative AI is part of the work. Using these tools with judgment, and checking what they produce, is part of what you will practice.`);
+  else lines.push(`In this course you will learn to ${goal}. You may use generative AI tools for the purposes listed below, because these uses can support that learning. Other uses would replace the thinking the course is designed to build.`);
+  lines.push("");
+  if (uses.length){
+    lines.push(stance==="limited" ? "Unless an assignment says otherwise, you may use AI only to:" : "You may use AI to:");
+    uses.forEach(u => lines.push(`  - ${USE_TXT[u]}`));
+    lines.push(stance==="integrated" ? "Some assignments will ask you to use AI in specific ways; others will ask you not to." : "Other uses require my permission first.");
+  } else {
+    lines.push("Unless an assignment says otherwise, do not use AI tools to generate, revise, or complete graded work.");
+  }
+  if (inc.has("assignment")){ lines.push(""); lines.push("Each assignment states its own AI expectations. When an assignment's directions differ from this statement, follow the assignment."); }
+  lines.push("");
+  const dtxt = {note:"When you use AI for graded work, add a short note at the end saying which tool you used and how.", log:"When you use AI for graded work, include a brief AI-use log: what you asked, what you kept, and what you changed.", links:"When you use AI for graded work, include links to or copies of the conversations you used."}[disc];
+  const para = [];
+  if (uses.length || stance!=="limited") para.push(dtxt);
+  if (inc.has("verify")) para.push("You are responsible for everything you submit. AI tools can produce errors and invented sources, so check facts, quotations, and citations against reliable sources.");
+  if (para.length) { lines.push(para.join(" ")); lines.push(""); }
+  if (inc.has("optout")) lines.push("Choosing not to use AI is always acceptable in this course, and no assignment will require a paid AI account.");
+  if (inc.has("ethics")) lines.push(""), lines.push("We will also discuss the ethical questions AI raises, including its environmental costs and its effects on work, because many St. Thomas students have said these questions matter to them.");
+  if (inc.has("ask")) lines.push(""), lines.push("If you are unsure whether a use is allowed, ask me before you submit. Questions about AI are welcome and will be treated as questions, not as suspicion.");
+  lines.push("");
+  lines.push("Using AI in ways this statement or an assignment does not allow is a violation of the University's academic integrity policy.");
+  const text = lines.join("\n").replace(/\n{3,}/g,"\n\n");
+  $("#stmt").textContent = text;
+  return text;
+}
+
+/* ---------------- Utilities ---------------- */
+function copyText(t, status){
+  const done = () => { status.textContent = "Copied"; setTimeout(()=>status.textContent="", 2500); };
+  if (navigator.clipboard && window.isSecureContext){ navigator.clipboard.writeText(t).then(done, fallback); } else fallback();
+  function fallback(){ const ta = document.createElement("textarea"); ta.value = t; ta.style.position="fixed"; ta.style.opacity="0"; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); done(); }catch(e){ status.textContent = "Select the text and copy it manually."; } ta.remove(); }
+}
+function download(name, text, type){
+  const blob = new Blob([text], {type:type||"text/plain"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = name; document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href); a.remove();}, 500);
+}
+
+/* ---------------- Nav highlighting ---------------- */
+function navSpy(){
+  const links = $$(".site-nav a");
+  const map = new Map(links.map(a => [a.getAttribute("href").slice(1), a]));
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(en => { if (en.isIntersecting){ links.forEach(l=>l.removeAttribute("aria-current")); const a = map.get(en.target.id); if (a) a.setAttribute("aria-current","true"); } });
+  }, {rootMargin:"-40% 0px -55% 0px"});
+  map.forEach((a,id) => { const s = document.getElementById(id); if (s) io.observe(s); });
+}
+
+/* ---------------- Theme ---------------- */
+function themeInit(){
+  const btn = $("#themeBtn");
+  let saved = null; try{ saved = localStorage.getItem("ust-ai-theme"); }catch(e){}
+  if (saved) document.documentElement.setAttribute("data-theme", saved);
+  const isDark = () => { const t = document.documentElement.getAttribute("data-theme"); return t ? t==="dark" : window.matchMedia("(prefers-color-scheme: dark)").matches; };
+  const label = () => btn.textContent = isDark() ? "Switch to light theme" : "Switch to dark theme";
+  label();
+  btn.addEventListener("click", () => { const t = isDark() ? "light" : "dark"; document.documentElement.setAttribute("data-theme", t); try{ localStorage.setItem("ust-ai-theme", t); }catch(e){} label(); });
+}
+
+/* ---------------- Class picture ---------------- */
+const FREQ_CATS = [["daily","Daily"],["weekly","Weekly"],["monthly","Monthly or occasionally"],["rarely","Rarely"],["never","Never"]];
+function apportion(shares, N){
+  const raw = shares.map(p => p/100*N), base = raw.map(Math.floor);
+  let left = N - base.reduce((a,b)=>a+b,0);
+  raw.map((r,i)=>[r-base[i], i]).sort((a,b)=>b[0]-a[0]).forEach(([,i]) => { if (left>0){ base[i]++; left--; } });
+  return base;
+}
+function renderClassPic(){
+  const N = +$("#cp-size").value, gk = $("#cp-group").value, g = G[gk];
+  const shares = g.y26.freq.slice(0,5);
+  const counts = apportion(shares, N);
+  $("#cp-size-out").textContent = N;
+  $("#cp-size").setAttribute("aria-valuetext", N + " students");
+  let dots = "";
+  counts.forEach((c,i) => { for (let k=0;k<c;k++) dots += `<span class="cp-dot c-${FREQ_CATS[i][0]}"></span>`; });
+  $("#cp-grid").innerHTML = dots;
+  $("#cp-legend").innerHTML = FREQ_CATS.map(([k,l],i) => `<li><span class="cp-dot c-${k}" aria-hidden="true"></span><span>${l}</span><b>${counts[i]} student${counts[i]===1?"":"s"}</b></li>`).join("");
+  const who = gk==="all" ? "students" : gk==="women" ? "women" : gk==="men" ? "men" : `${g.label} students`;
+  const wk = counts[0]+counts[1];
+  $("#cp-summary").textContent = `In a class of ${N} ${who}, about ${wk} would use AI for academic work weekly or more and about ${counts[4]} would never use it. Based on 2026 shares (n = ${g.y26.fn}), rounded so the counts add to ${N}. A real class will vary.`;
+  saved.cp = {size:N, group:gk}; persist();
+}
+function initClassPic(){
+  const sel = $("#cp-group");
+  sel.innerHTML = `<option value="all">All students</option><optgroup label="Gender"><option value="women">Women</option><option value="men">Men</option></optgroup><optgroup label="School or college">${["cas","opus","mfcoh","eng","educ","law","sps"].map(k=>`<option value="${k}">${esc(G[k].label)}</option>`).join("")}</optgroup>`;
+  if (saved.cp){ $("#cp-size").value = saved.cp.size || 30; if (G[saved.cp.group]) sel.value = saved.cp.group; }
+  $("#cp-size").addEventListener("input", renderClassPic);
+  sel.addEventListener("change", renderClassPic);
+  renderClassPic();
+}
+
+/* ---------------- Notes ---------------- */
+const NOTE_TITLES = {use:"How often students use AI", practices:"How students use AI in coursework", integrity:"Where students draw the line", concerns:"What students worry about", spring:"Spring 2026 study"};
+function initNotes(){
+  saved.notes = saved.notes || {};
+  $$("details.mynote").forEach(d => {
+    const k = d.dataset.note, ta = $("textarea", d), st = $(".note-status", d);
+    ta.value = saved.notes[k] || "";
+    d.classList.toggle("has-note", !!ta.value.trim());
+    let t;
+    ta.addEventListener("input", () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        saved.notes[k] = ta.value; persist();
+        d.classList.toggle("has-note", !!ta.value.trim());
+        st.textContent = "Saved on this device";
+        renderNotesSummary();
+      }, 400);
+    });
+  });
+  renderNotesSummary();
+}
+function renderNotesSummary(){
+  const box = $("#notes-summary");
+  const ks = Object.keys(NOTE_TITLES).filter(k => (saved.notes||{})[k] && saved.notes[k].trim());
+  if (!ks.length){ box.innerHTML = `<p class="prose src">Each section has a notes box. Anything you write there collects here.</p>`; return; }
+  box.innerHTML = `<h3>Your notes</h3>` + ks.map(k => `<h4><a href="#${k==="spring"?"spring-study":k}">${esc(NOTE_TITLES[k])}</a></h4><p class="prose" style="white-space:pre-wrap">${esc(saved.notes[k])}</p>`).join("");
+}
+
+/* ---------------- Progress ---------------- */
+function updateProgress(){
+  const n = ORDER.filter(id => state.answered[id]).length;
+  $("#pcount").textContent = state.predOn ? `${n}/${ORDER.length}` : "";
+}
+function initReadBar(){
+  const bar = $("#read-bar"); let tick = false;
+  const upd = () => { const h = document.documentElement; const max = h.scrollHeight - h.clientHeight; bar.style.width = (max>0 ? (h.scrollTop/max)*100 : 0) + "%"; tick = false; };
+  window.addEventListener("scroll", () => { if (!tick){ tick = true; requestAnimationFrame(upd); } }, {passive:true});
+  upd();
+}
+
+/* ---------------- CSV and export ---------------- */
+document.addEventListener("click", e => {
+  const b = e.target.closest(".csv-btn"); if (!b) return;
+  const table = $("table", b.closest("details"));
+  const q = v => /[",\n]/.test(v) ? `"${v.replace(/"/g,'""')}"` : v;
+  const rows = $$("tr", table).map(tr => $$("th,td", tr).map(c => q(c.textContent.trim())).join(","));
+  const cap = (table.caption ? table.caption.textContent : "data").replace(/[^\w]+/g,"-").replace(/^-|-$/g,"").slice(0,60);
+  download(`${cap}.csv`, rows.join("\n"), "text/csv");
+});
+function exportAll(){
+  const L = [];
+  L.push("Students and AI at St. Thomas: my predictions and notes");
+  L.push(`Saved ${new Date().toLocaleDateString()}`);
+  L.push("");
+  const done = ORDER.filter(id => state.guesses[id] !== undefined);
+  L.push("PREDICTIONS");
+  if (!done.length) L.push("No predictions made.");
+  done.forEach(id => L.push(`- ${SHORT[id]}: guessed ${state.guesses[id]}%, actual ${fmtPct(PRED[id].actual)}`));
+  L.push("");
+  L.push("NOTES");
+  const ks = Object.keys(NOTE_TITLES).filter(k => (saved.notes||{})[k] && saved.notes[k].trim());
+  if (!ks.length) L.push("No notes.");
+  ks.forEach(k => { L.push(`${NOTE_TITLES[k]}:`); L.push(saved.notes[k].trim()); L.push(""); });
+  const dir = $("#dir-text");
+  if (dir){ L.push(""); L.push("ASSIGNMENT DIRECTIONS (from the planner)"); L.push(dir.value.trim()); }
+  L.push(""); L.push("SYLLABUS STATEMENT"); L.push(buildStatement());
+  L.push(""); L.push("Source: STELAR, University of St. Thomas. Two-year Student AI Survey (2025, n = 310; 2026, n = 925) and spring 2026 study of undergraduates (n = 851).");
+  download("my-AI-teaching-notes.txt", L.join("\n"));
+  $("#export-status").textContent = "Downloaded"; setTimeout(()=>$("#export-status").textContent="",2500);
+}
+
+/* ---------------- Builder persistence ---------------- */
+function saveBuilder(){
+  const f = $("#builder-form");
+  saved.builder = {
+    course: $("#b-course").value, goal: $("#b-goal").value,
+    stance: (f.querySelector('input[name="b-stance"]:checked')||{}).value,
+    uses: $$('input[name="b-use"]:checked', f).map(x=>x.value),
+    disc: (f.querySelector('input[name="b-disc"]:checked')||{}).value,
+    inc: $$('input[name="b-inc"]:checked', f).map(x=>x.value)
+  };
+  persist();
+}
+function restoreBuilder(){
+  const b = saved.builder; if (!b) return;
+  const f = $("#builder-form");
+  $("#b-course").value = b.course || ""; if (b.goal != null) $("#b-goal").value = b.goal;
+  $$('input[name="b-stance"]', f).forEach(x => x.checked = x.value === b.stance);
+  $$('input[name="b-use"]', f).forEach(x => x.checked = (b.uses||[]).includes(x.value));
+  $$('input[name="b-disc"]', f).forEach(x => x.checked = x.value === b.disc);
+  $$('input[name="b-inc"]', f).forEach(x => x.checked = (b.inc||[]).includes(x.value));
+}
+function restorePlanner(){
+  const p = saved.planner; if (!p) return;
+  const f = $("#planner-form");
+  [["purpose",p.purpose],["unaided",p.unaided],["observe",p.observe],["current",String(p.current||0)]].forEach(([n,v]) => {
+    const x = f.querySelector(`input[name="${n}"][value="${v}"]`); if (x) x.checked = true;
+  });
+  if (p.done) planner(null);
+}
+
+/* ---------------- Init ---------------- */
+if (saved.group && G[saved.group]) state.group = saved.group;
+initGroupUI();
+renderCharts();
+initClassPic();
+$$(".predict").forEach(renderPredict);
+$$("[data-skip-pred]").forEach(b => b.addEventListener("click", () => answer(b.dataset.skipPred, null)));
+$("#predToggle").addEventListener("click", () => setPredMode(!state.predOn));
+ORDER.forEach(id => { if (saved.answered && saved.answered[id]) answer(id, saved.guesses && saved.guesses[id] !== undefined ? saved.guesses[id] : null); });
+setPredMode(saved.predOn === false ? false : true);
+
+tabs($("#sub-tabs"), t => renderSub(t.id==="tab-freq" ? "freq" : "gender"));
+tabs($("#guide-tabs"), t => { $$("#guides [role=tabpanel]").forEach(p => p.hidden = p.id !== t.getAttribute("aria-controls")); });
+
+restorePlanner();
+$("#planner-form").addEventListener("submit", planner);
+restoreBuilder();
+const onBuilder = () => { buildStatement(); saveBuilder(); };
+$("#builder-form").addEventListener("input", onBuilder);
+$("#builder-form").addEventListener("change", onBuilder);
+buildStatement();
+$("#stmt-copy").addEventListener("click", () => copyText(buildStatement(), $("#stmt-copied")));
+$("#stmt-dl").addEventListener("click", () => { const c = $("#b-course").value.trim().replace(/[^\w-]+/g,"-") || "course"; download(`AI-statement-${c}.txt`, buildStatement()); $("#stmt-copied").textContent = "Downloaded"; setTimeout(()=>$("#stmt-copied").textContent="",2500); });
+
+initNotes();
+$("#export-btn").addEventListener("click", exportAll);
+$("#clear-btn").addEventListener("click", () => {
+  if (!window.confirm("Clear your predictions, notes, and tool answers saved on this device?")) return;
+  try { localStorage.removeItem(STORE); } catch(e){}
+  location.reload();
+});
+
+$$("[data-print]").forEach(b => b.addEventListener("click", () => {
+  const panel = document.getElementById(b.dataset.print);
+  document.body.classList.add("printing-guide"); panel.classList.add("print-target");
+  const clean = () => { document.body.classList.remove("printing-guide"); panel.classList.remove("print-target"); window.removeEventListener("afterprint", clean); };
+  window.addEventListener("afterprint", clean);
+  window.print();
+}));
+
+initReadBar();
+updateProgress();
+navSpy();
+themeInit();
+})();
+</script>
+</body>
+</html>
